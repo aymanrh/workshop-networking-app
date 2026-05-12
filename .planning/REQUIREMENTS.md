@@ -168,68 +168,66 @@ Explicit exclusions. Documented to prevent re-adding.
 
 ## Traceability
 
-Empty initially. Populated by the roadmapper agent when phases are created.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FND-01 | — | Pending |
-| FND-02 | — | Pending |
-| FND-03 | — | Pending |
-| FND-04 | — | Pending |
-| FND-05 | — | Pending |
-| FND-06 | — | Pending |
-| FND-07 | — | Pending |
-| FND-08 | — | Pending |
-| FND-09 | — | Pending |
-| PPL-01 | — | Pending |
-| PPL-02 | — | Pending |
-| PPL-03 | — | Pending |
-| PPL-04 | — | Pending |
-| PPL-05 | — | Pending |
-| PPL-06 | — | Pending |
-| PPL-07 | — | Pending |
-| PPL-08 | — | Pending |
-| PPL-09 | — | Pending |
-| EVT-01 | — | Pending |
-| EVT-02 | — | Pending |
-| EVT-03 | — | Pending |
-| EVT-04 | — | Pending |
-| EVT-05 | — | Pending |
-| EVT-06 | — | Pending |
-| EVT-07 | — | Pending |
-| TCH-01 | — | Pending |
-| TCH-02 | — | Pending |
-| TCH-03 | — | Pending |
-| TCH-04 | — | Pending |
-| TCH-05 | — | Pending |
-| TCH-06 | — | Pending |
-| HOM-01 | — | Pending |
-| HOM-02 | — | Pending |
-| HOM-03 | — | Pending |
-| HOM-04 | — | Pending |
-| SRC-01 | — | Pending |
-| SRC-02 | — | Pending |
-| SRC-03 | — | Pending |
-| SRC-04 | — | Pending |
-| SET-01 | — | Pending |
-| SET-02 | — | Pending |
-| SET-03 | — | Pending |
-| SET-04 | — | Pending |
-| SET-05 | — | Pending |
-| SED-01 | — | Pending |
-| SED-02 | — | Pending |
-| SED-03 | — | Pending |
-| SED-04 | — | Pending |
-| POL-01 | — | Pending |
-| POL-02 | — | Pending |
-| POL-03 | — | Pending |
-| POL-04 | — | Pending |
-| POL-05 | — | Pending |
+| FND-01 | Phase 1 | Pending |
+| FND-02 | Phase 1 | Pending |
+| FND-03 | Phase 1 | Pending |
+| FND-04 | Phase 1 | Pending |
+| FND-05 | Phase 1 | Pending |
+| FND-06 | Phase 1 | Pending |
+| FND-07 | Phase 1 | Pending |
+| FND-08 | Phase 1 | Pending |
+| FND-09 | Phase 1 | Pending |
+| POL-04 | Phase 1 | Pending |
+| PPL-01 | Phase 2 | Pending |
+| PPL-02 | Phase 2 | Pending |
+| PPL-03 | Phase 2 | Pending |
+| PPL-04 | Phase 2 | Pending |
+| PPL-05 | Phase 2 | Pending |
+| PPL-06 | Phase 2 | Pending |
+| PPL-07 | Phase 2 | Pending |
+| PPL-08 | Phase 2 | Pending |
+| PPL-09 | Phase 2 | Pending |
+| EVT-01 | Phase 3 | Pending |
+| EVT-02 | Phase 3 | Pending |
+| EVT-03 | Phase 3 | Pending |
+| EVT-04 | Phase 3 | Pending |
+| EVT-05 | Phase 3 | Pending |
+| EVT-06 | Phase 3 | Pending |
+| EVT-07 | Phase 3 | Pending |
+| TCH-01 | Phase 4 | Pending |
+| TCH-02 | Phase 4 | Pending |
+| TCH-03 | Phase 4 | Pending |
+| TCH-04 | Phase 4 | Pending |
+| TCH-05 | Phase 4 | Pending |
+| TCH-06 | Phase 4 | Pending |
+| HOM-01 | Phase 4 | Pending |
+| HOM-02 | Phase 4 | Pending |
+| HOM-03 | Phase 4 | Pending |
+| HOM-04 | Phase 4 | Pending |
+| SRC-01 | Phase 5 | Pending |
+| SRC-02 | Phase 5 | Pending |
+| SRC-03 | Phase 5 | Pending |
+| SRC-04 | Phase 5 | Pending |
+| SET-01 | Phase 5 | Pending |
+| SET-02 | Phase 5 | Pending |
+| SET-03 | Phase 5 | Pending |
+| SET-04 | Phase 5 | Pending |
+| SET-05 | Phase 5 | Pending |
+| SED-01 | Phase 5 | Pending |
+| SED-02 | Phase 5 | Pending |
+| SED-03 | Phase 5 | Pending |
+| SED-04 | Phase 5 | Pending |
+| POL-01 | Phase 5 | Pending |
+| POL-02 | Phase 5 | Pending |
+| POL-03 | Phase 5 | Pending |
+| POL-05 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 53 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 53 ⚠️ (resolved by roadmapper)
+- Mapped to phases: 53 ✓
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-12*
