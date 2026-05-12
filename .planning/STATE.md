@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-05-12)
 
 **Core value:** Adding a new person right after a meetup takes under 30 seconds and feels effortless.
-**Current focus:** Phase 1 — Foundation & Static-Export Spine (context captured, planning next)
+**Current focus:** Phase 1 complete; Phase 2 (People) is next.
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation & Static-Export Spine)
+Phase: 2 of 4 (People — not started)
 Plan: 0 of TBD
-Status: Ready to plan
-Last activity: 2026-05-12 — Project initialized; PROJECT.md, REQUIREMENTS.md, ROADMAP.md committed
+Status: Phase 1 shipped; awaiting Phase 2 kickoff
+Last activity: 2026-05-13 — Phase 1 complete: Next 16 + Tailwind v4 + shadcn shell, Dexie v1 schema, dynamic [id] routes proven under output:"export", Vitest smoke (4/4), GH Pages workflow committed
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██▌░░░░░░░] 25%
 
 ## Performance Metrics
 
@@ -69,6 +69,7 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-05-12 23:00
-Stopped at: Phase 1 context captured via `/gsd-discuss-phase --auto --chain`; chaining into plan+execute, then continuing autonomously through Phases 2-4
-Resume file: .planning/phases/01-foundation-static-export-spine/01-CONTEXT.md
+Last session: 2026-05-13 00:00
+Stopped at: Phase 1 complete — scaffold + Dexie + shell + smoke test + GH Pages workflow shipped. Build green, 4/4 tests pass. Phases 2-4 deferred to subsequent sessions (each is its own /gsd-autonomous --from N run).
+Resume file: .planning/phases/01-foundation-static-export-spine/01-SUMMARY.md
+Next command: `/gsd-autonomous --from 2` (or `/gsd-discuss-phase 2 --auto --chain` to start Phase 2 manually)

@@ -25,7 +25,7 @@ Requirements for the workshop-demo release (2026-05-30). Each maps to roadmap ph
 - [ ] **PPL-02**: The Add Person flow completes in under 30 seconds for a typical entry (name + role + 2 tags + 1-line note + where-we-met)
 - [ ] **PPL-03**: A person record stores: name, role/company, tags (string[]), notes, closeness (`close` / `warm` / `cooling`), createdAt, lastContactAt, optional followUpAt, optional eventMetId
 - [ ] **PPL-04**: User can browse all people in a clean list, sortable by recent activity, showing name, role, closeness chip, and last-touch indicator
-- [ ] **PPL-05**: User can open a person's detail page to see all stored fields, notes, where-we-met (with link to the event), and any follow-up status
+- [ ] **PPL-05**: User can open a person's detail page to see all stored fields, notes, and where-we-met (with link to the event)
 - [ ] **PPL-06**: User can edit a person's fields from the detail page
 - [ ] **PPL-07**: User can delete a person, with cascading cleanup of any touches that reference them
 - [ ] **PPL-08**: Tags entered on a person are normalized (trimmed + lowercased) on save; an autocomplete suggests existing tags so the same concept doesn't fragment into "Design / design / Designer"
@@ -41,22 +41,6 @@ Requirements for the workshop-demo release (2026-05-30). Each maps to roadmap ph
 - [ ] **EVT-06**: User can edit or delete an event; deleting an event detaches it from any people who had it as their where-we-met (event reference cleared, person retained)
 - [ ] **EVT-07**: When creating a person, the `eventMet` field defaults to the most recently created event (so "just got back from a meetup, adding the people" requires zero extra taps to set the where-we-met)
 
-### Touchpoints & Follow-ups
-
-- [ ] **TCH-01**: A person's detail page shows a touchpoint timeline (append-only log of meet / message / note entries with timestamps)
-- [ ] **TCH-02**: User can add a touchpoint to a person (type + optional note); the touch records its own timestamp and updates the person's `lastContactAt`
-- [ ] **TCH-03**: User can set or clear a follow-up date on a person from their detail page
-- [ ] **TCH-04**: The Home dashboard shows today's follow-ups (people whose `followUpAt` is today or earlier and not yet acted on)
-- [ ] **TCH-05**: User can mark a follow-up as done from the dashboard, which clears the follow-up date
-- [ ] **TCH-06**: Person detail shows a factual "last seen N days ago" indicator derived from `lastContactAt` (closeness state is separate and manually controlled)
-
-### Home Dashboard
-
-- [ ] **HOM-01**: Home shows counts at a glance: total people, today's follow-ups, upcoming events
-- [ ] **HOM-02**: Home shows a "Follow-ups today" section with each person's name, last-event context, and a one-tap action to mark done
-- [ ] **HOM-03**: Home shows an "Upcoming" section listing the next 3 events with dates
-- [ ] **HOM-04**: When the dataset is empty, Home shows a friendly empty state inviting the user to add their first person or load seed data
-
 ### Search & Filter
 
 - [ ] **SRC-01**: User can search across people by name, tag, role, and notes from a single search input
@@ -64,19 +48,18 @@ Requirements for the workshop-demo release (2026-05-30). Each maps to roadmap ph
 - [ ] **SRC-03**: User can filter people by closeness (★ close / 🔥 warm / ❄ cooling) or by tag
 - [ ] **SRC-04**: When no matches, the empty state suggests dropping a tag or shortening the query
 
-### Settings & Data Management
+### Data Management
 
-- [ ] **SET-01**: User can toggle between light and dark themes
-- [ ] **SET-02**: User can export all data as a JSON file (`dexie-export-import` round-trip)
-- [ ] **SET-03**: User can import a previously exported JSON file, replacing or merging current data with confirmation
-- [ ] **SET-04**: User can reset the database (deletes all local data, with a typed-confirmation safeguard)
-- [ ] **SET-05**: Settings shows the current data footprint (people / events / touches counts)
+No dedicated Settings page in v1. Theme toggle lives in the shell header; backup/restore lives in a header menu.
+
+- [ ] **SET-02**: User can export all data as a JSON file from a header menu (`dexie-export-import` round-trip)
+- [ ] **SET-03**: User can import a previously exported JSON file from a header menu, replacing or merging current data with confirmation
 
 ### First Run & Seed Data
 
-- [ ] **SED-01**: On first run (no people in the database), a prompt offers to load rich seed data (~8 diverse people, 3-4 events, varied closeness states, a few follow-ups due today)
+- [ ] **SED-01**: On first run (no people in the database), a prompt offers to load rich seed data (~8 diverse people, 3-4 events, varied closeness states)
 - [ ] **SED-02**: User can decline seed and start empty — the empty states guide them
-- [ ] **SED-03**: User can reload seed data later from Settings (idempotent — won't create duplicates)
+- [ ] **SED-03**: User can reload seed data later from a header menu (idempotent — won't create duplicates)
 - [ ] **SED-04**: Seed names, roles, and notes feel plausible and varied, not "John Doe / Jane Smith" placeholder cringe
 
 ### Polish
@@ -90,6 +73,34 @@ Requirements for the workshop-demo release (2026-05-30). Each maps to roadmap ph
 ## v2 Requirements
 
 Deferred to future releases. Tracked but not in the workshop-demo roadmap.
+
+### Touchpoints & Follow-ups (deferred from v1)
+
+Deferred 2026-05-12 when v1 scope was cut from 5 phases to 4. Schema fields (`touches` store, `lastContactAt`, `followUpAt`) remain pre-declared in v1 per FND-04 so v2 needs no migration.
+
+- **TCH-01**: A person's detail page shows a touchpoint timeline (append-only log of meet / message / note entries with timestamps)
+- **TCH-02**: User can add a touchpoint to a person (type + optional note); the touch records its own timestamp and updates the person's `lastContactAt`
+- **TCH-03**: User can set or clear a follow-up date on a person from their detail page
+- **TCH-04**: The Home dashboard shows today's follow-ups (people whose `followUpAt` is today or earlier and not yet acted on)
+- **TCH-05**: User can mark a follow-up as done from the dashboard, which clears the follow-up date
+- **TCH-06**: Person detail shows a factual "last seen N days ago" indicator derived from `lastContactAt`
+
+### Home Dashboard (deferred from v1)
+
+Deferred 2026-05-12 alongside Touchpoints. v1 Home is a simple landing surface; the at-a-glance counts/follow-ups view is v2.
+
+- **HOM-01**: Home shows counts at a glance: total people, today's follow-ups, upcoming events
+- **HOM-02**: Home shows a "Follow-ups today" section with each person's name, last-event context, and a one-tap action to mark done
+- **HOM-03**: Home shows an "Upcoming" section listing the next 3 events with dates
+- **HOM-04**: When the dataset is empty, Home shows a friendly empty state inviting the user to add their first person or load seed data
+
+### Settings page (deferred from v1)
+
+Deferred 2026-05-12 — v1 keeps theme toggle in shell header and JSON backup/restore in a header menu. A dedicated Settings page returns in v2 when reset and footprint metrics earn their place.
+
+- **SET-01**: User can toggle between light and dark themes from a Settings page (v1: in shell header instead)
+- **SET-04**: User can reset the database (deletes all local data, with a typed-confirmation safeguard)
+- **SET-05**: Settings shows the current data footprint (people / events / touches counts)
 
 ### Onboarding
 
@@ -196,39 +207,27 @@ Explicit exclusions. Documented to prevent re-adding.
 | EVT-05 | Phase 3 | Pending |
 | EVT-06 | Phase 3 | Pending |
 | EVT-07 | Phase 3 | Pending |
-| TCH-01 | Phase 4 | Pending |
-| TCH-02 | Phase 4 | Pending |
-| TCH-03 | Phase 4 | Pending |
-| TCH-04 | Phase 4 | Pending |
-| TCH-05 | Phase 4 | Pending |
-| TCH-06 | Phase 4 | Pending |
-| HOM-01 | Phase 4 | Pending |
-| HOM-02 | Phase 4 | Pending |
-| HOM-03 | Phase 4 | Pending |
-| HOM-04 | Phase 4 | Pending |
-| SRC-01 | Phase 5 | Pending |
-| SRC-02 | Phase 5 | Pending |
-| SRC-03 | Phase 5 | Pending |
-| SRC-04 | Phase 5 | Pending |
-| SET-01 | Phase 5 | Pending |
-| SET-02 | Phase 5 | Pending |
-| SET-03 | Phase 5 | Pending |
-| SET-04 | Phase 5 | Pending |
-| SET-05 | Phase 5 | Pending |
-| SED-01 | Phase 5 | Pending |
-| SED-02 | Phase 5 | Pending |
-| SED-03 | Phase 5 | Pending |
-| SED-04 | Phase 5 | Pending |
-| POL-01 | Phase 5 | Pending |
-| POL-02 | Phase 5 | Pending |
-| POL-03 | Phase 5 | Pending |
-| POL-05 | Phase 5 | Pending |
+| SRC-01 | Phase 4 | Pending |
+| SRC-02 | Phase 4 | Pending |
+| SRC-03 | Phase 4 | Pending |
+| SRC-04 | Phase 4 | Pending |
+| SET-02 | Phase 4 | Pending |
+| SET-03 | Phase 4 | Pending |
+| SED-01 | Phase 4 | Pending |
+| SED-02 | Phase 4 | Pending |
+| SED-03 | Phase 4 | Pending |
+| SED-04 | Phase 4 | Pending |
+| POL-01 | Phase 4 | Pending |
+| POL-02 | Phase 4 | Pending |
+| POL-03 | Phase 4 | Pending |
+| POL-05 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 53 total
-- Mapped to phases: 53 ✓
+- v1 requirements: 40 total
+- Mapped to phases: 40 ✓
 - Unmapped: 0 ✓
+- Deferred to v2 in this revision: TCH-01..06, HOM-01..04, SET-01, SET-04, SET-05 (13 items)
 
 ---
 *Requirements defined: 2026-05-12*
-*Last updated: 2026-05-12 after initial definition*
+*Last updated: 2026-05-12 — scope cut from 5 phases to 4: removed Touchpoints/Follow-ups/Home Dashboard phase, removed Settings page (TCH/HOM/SET-01/04/05 deferred to v2)*
