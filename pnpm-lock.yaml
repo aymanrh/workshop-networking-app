@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@hookform/resolvers':
-        specifier: ^5.0.0
+        specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.75.0(react@19.2.6))
       '@radix-ui/react-dropdown-menu':
         specifier: ^2.1.0
@@ -63,7 +63,7 @@ importers:
         specifier: ^2.3.0
         version: 2.4.0
       zod:
-        specifier: ^3.25.0
+        specifier: ^3.25.76
         version: 3.25.76
       zustand:
         specifier: ^5.0.13
