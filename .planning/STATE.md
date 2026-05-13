@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-05-12)
 
 **Core value:** Adding a new person right after a meetup takes under 30 seconds and feels effortless.
-**Current focus:** Phases 1-3 complete; Phase 4 (Search, Seed, Polish & Ship) is next.
+**Current focus:** All 4 phases complete — milestone v1.0 ready for audit → complete → cleanup.
 
 ## Current Position
 
-Phase: 4 of 4 (Search, Seed, Polish & Ship — not started)
-Plan: 0 of TBD
-Status: Phase 3 shipped; awaiting Phase 4 kickoff
-Last activity: 2026-05-13 — Phase 3 complete: Events CRUD, AttendeesPicker, EVT-05 rhythmic loop, EVT-07 smart event-met default, cascade delete, route-aware FAB/TopBar; 20/20 tests pass; build green. Human UAT items recorded.
+Phase: 4 of 4 (Search, Seed, Polish & Ship — complete)
+Plan: 16 of 16
+Status: All phases shipped; ready for milestone lifecycle
+Last activity: 2026-05-13 — Phase 4 complete: global search popover, JSON export/import, seed dataset + first-run prompt, Home page, README rewrite, Playwright smoke E2E; 28/28 tests pass; build green.
 
-Progress: [████████░░] 75%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -70,6 +70,6 @@ Items acknowledged and carried forward from previous milestone close:
 ## Session Continuity
 
 Last session: 2026-05-13 (continuing)
-Stopped at: Phase 3 complete — Events CRUD, AttendeesPicker (Command + Dialog), EVT-05 rhythmic loop in AddPersonSheet, EVT-07 smart event-met default, route-aware FAB/TopBar. Build green, 20/20 tests pass. Manual UAT recorded in 03-VERIFICATION.md.
-Resume file: .planning/phases/03-events-linking/03-SUMMARY.md
-Next command: continuing autonomous workflow into Phase 4 (Search, Seed, Polish & Ship)
+Stopped at: All 4 phases complete. v1 feature set is in place: People/Events CRUD, attendees + linking, search + filters, JSON I/O, seed + first-run, README rewritten, Playwright smoke. Build green, 28/28 tests. Per-phase human UAT recorded in {01..04}-VERIFICATION.md.
+Resume file: .planning/phases/04-search-seed-polish-ship/04-SUMMARY.md
+Next command: milestone lifecycle (audit → complete → cleanup)
