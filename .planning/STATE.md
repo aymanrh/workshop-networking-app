@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-05-12)
 
 **Core value:** Adding a new person right after a meetup takes under 30 seconds and feels effortless.
-**Current focus:** Phase 1 complete; Phase 2 (People) is next.
+**Current focus:** Phases 1-2 complete; Phase 3 (Events & Linking) is next.
 
 ## Current Position
 
-Phase: 2 of 4 (People — not started)
+Phase: 3 of 4 (Events & Linking — not started)
 Plan: 0 of TBD
-Status: Phase 1 shipped; awaiting Phase 2 kickoff
-Last activity: 2026-05-13 — Phase 1 complete: Next 16 + Tailwind v4 + shadcn shell, Dexie v1 schema, dynamic [id] routes proven under output:"export", Vitest smoke (4/4), GH Pages workflow committed
+Status: Phase 2 shipped; awaiting Phase 3 kickoff
+Last activity: 2026-05-13 — Phase 2 complete: People CRUD, Add Person Sheet (FAB + desktop), tag chip input + autocomplete, ClosenessChip inline-save, cascade delete; 14/14 tests pass; build green. Human UAT for 30-second-capture stopwatch + responsive parity pending.
 
-Progress: [██▌░░░░░░░] 25%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
@@ -69,7 +69,7 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-05-13 00:00
-Stopped at: Phase 1 complete — scaffold + Dexie + shell + smoke test + GH Pages workflow shipped. Build green, 4/4 tests pass. Phases 2-4 deferred to subsequent sessions (each is its own /gsd-autonomous --from N run).
-Resume file: .planning/phases/01-foundation-static-export-spine/01-SUMMARY.md
-Next command: `/gsd-autonomous --from 2` (or `/gsd-discuss-phase 2 --auto --chain` to start Phase 2 manually)
+Last session: 2026-05-13 (continuing)
+Stopped at: Phase 2 complete — People CRUD, Add Person Sheet, tag autocomplete, closeness inline-save, cascade delete. Build green, 14/14 tests pass. Manual UAT items (30-second-capture stopwatch, responsive parity, autocomplete-in-sheet visual) recorded in 02-VERIFICATION.md.
+Resume file: .planning/phases/02-people/02-SUMMARY.md
+Next command: continuing autonomous workflow into Phase 3 (Events & Linking)
