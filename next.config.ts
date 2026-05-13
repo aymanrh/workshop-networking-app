@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isPages = process.env.GITHUB_PAGES === "true";
-const repo = "ws";
+const repo = "workshop-networking-app";
 
 // Next 16 enforces generateStaticParams() at runtime when output:"export" is set,
 // which makes /people/[id] and /events/[id] crash in `next dev` for any id that

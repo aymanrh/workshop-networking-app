@@ -87,7 +87,7 @@ One Playwright test in `e2e/smoke.spec.ts` covers Add Person → list update. No
 
 `.github/workflows/deploy.yml` builds with `GITHUB_PAGES=true` and uploads `out/` via `actions/deploy-pages@v4` on every push to `main`. In repo settings: **Settings → Pages → Source: GitHub Actions**. The next push deploys to `https://<owner>.github.io/<repo>/`.
 
-If your repo name isn't `ws`, edit `repo` in `next.config.ts`.
+If your repo name isn't `workshop-networking-app`, edit `repo` in `next.config.ts`.
 
 ### Vercel (one-click)
 
