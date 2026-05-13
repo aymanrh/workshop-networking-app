@@ -1,6 +1,7 @@
 "use client";
 
 import { ThemeToggle } from "@/components/shell/theme-toggle";
+import { AddPersonButton } from "@/components/people/add-person-button";
 
 export function TopBar() {
   return (
@@ -9,10 +10,11 @@ export function TopBar() {
         Networking App
       </div>
       <div className="hidden md:block" aria-hidden="true" />
-      <div className="md:hidden">
+      <div className="flex items-center gap-2 md:hidden">
         <ThemeToggle />
       </div>
-      <div className="hidden md:block">
+      <div className="hidden items-center gap-2 md:flex">
+        <AddPersonButton />
         {/* Slot reserved for header menu items (export/import in Phase 4). */}
       </div>
     </header>
