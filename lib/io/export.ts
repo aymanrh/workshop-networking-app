@@ -1,12 +1,12 @@
 "use client";
 
-import { exportDB } from "dexie-export-import";
 import { db } from "@/lib/db/db";
 
 export async function exportData(): Promise<{
   blob: Blob;
   counts: { people: number; events: number };
 }> {
+  const { exportDB } = await import("dexie-export-import");
   const [people, events] = await Promise.all([
     db.people.count(),
     db.events.count(),

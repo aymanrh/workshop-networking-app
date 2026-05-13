@@ -1,6 +1,5 @@
 "use client";
 
-import { importInto } from "dexie-export-import";
 import { db } from "@/lib/db/db";
 
 export async function currentCounts(): Promise<{
@@ -17,6 +16,7 @@ export async function currentCounts(): Promise<{
 export async function replaceWithImport(
   blob: Blob,
 ): Promise<{ people: number; events: number }> {
+  const { importInto } = await import("dexie-export-import");
   await db.delete();
   await db.open();
   await importInto(db, blob);
