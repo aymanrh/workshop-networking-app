@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-05-12)
 
 **Core value:** Adding a new person right after a meetup takes under 30 seconds and feels effortless.
-**Current focus:** Phases 1-2 complete; Phase 3 (Events & Linking) is next.
+**Current focus:** Phases 1-3 complete; Phase 4 (Search, Seed, Polish & Ship) is next.
 
 ## Current Position
 
-Phase: 3 of 4 (Events & Linking — not started)
+Phase: 4 of 4 (Search, Seed, Polish & Ship — not started)
 Plan: 0 of TBD
-Status: Phase 2 shipped; awaiting Phase 3 kickoff
-Last activity: 2026-05-13 — Phase 2 complete: People CRUD, Add Person Sheet (FAB + desktop), tag chip input + autocomplete, ClosenessChip inline-save, cascade delete; 14/14 tests pass; build green. Human UAT for 30-second-capture stopwatch + responsive parity pending.
+Status: Phase 3 shipped; awaiting Phase 4 kickoff
+Last activity: 2026-05-13 — Phase 3 complete: Events CRUD, AttendeesPicker, EVT-05 rhythmic loop, EVT-07 smart event-met default, cascade delete, route-aware FAB/TopBar; 20/20 tests pass; build green. Human UAT items recorded.
 
-Progress: [█████░░░░░] 50%
+Progress: [████████░░] 75%
 
 ## Performance Metrics
 
@@ -70,6 +70,6 @@ Items acknowledged and carried forward from previous milestone close:
 ## Session Continuity
 
 Last session: 2026-05-13 (continuing)
-Stopped at: Phase 2 complete — People CRUD, Add Person Sheet, tag autocomplete, closeness inline-save, cascade delete. Build green, 14/14 tests pass. Manual UAT items (30-second-capture stopwatch, responsive parity, autocomplete-in-sheet visual) recorded in 02-VERIFICATION.md.
-Resume file: .planning/phases/02-people/02-SUMMARY.md
-Next command: continuing autonomous workflow into Phase 3 (Events & Linking)
+Stopped at: Phase 3 complete — Events CRUD, AttendeesPicker (Command + Dialog), EVT-05 rhythmic loop in AddPersonSheet, EVT-07 smart event-met default, route-aware FAB/TopBar. Build green, 20/20 tests pass. Manual UAT recorded in 03-VERIFICATION.md.
+Resume file: .planning/phases/03-events-linking/03-SUMMARY.md
+Next command: continuing autonomous workflow into Phase 4 (Search, Seed, Polish & Ship)

@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Static-Export Spine** - Working shell deployed to GH Pages with Dexie schema, dynamic routes, and theming all proven
 - [x] **Phase 2: People** - Full People CRUD with 30-second capture, tags, closeness, and list/detail views
-- [ ] **Phase 3: Events & Linking** - Events CRUD plus bi-directional person↔event linking with smart event-met defaults
+- [x] **Phase 3: Events & Linking** - Events CRUD plus bi-directional person↔event linking with smart event-met defaults
 - [ ] **Phase 4: Search, Seed Data, Polish & Ship** - Global search, JSON backup/restore via header menu, seed data, README, GH Pages + Vercel deploy validated
 
 ## Phase Details
@@ -80,5 +80,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Static-Export Spine | 14/14 | Complete | 2026-05-13 |
 | 2. People | 15/15 | Complete | 2026-05-13 |
-| 3. Events & Linking | 0/TBD | Not started | - |
+| 3. Events & Linking | 17/17 | Complete | 2026-05-13 |
 | 4. Search, Seed Data, Polish & Ship | 0/TBD | Not started | - |
