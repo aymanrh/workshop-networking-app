@@ -1,7 +1,7 @@
 "use client";
 
 import { ThemeToggle } from "@/components/shell/theme-toggle";
-import { AddPersonButton } from "@/components/people/add-person-button";
+import { RouteAwareAddButton } from "./route-aware-triggers";
 
 export function TopBar() {
   return (
@@ -14,7 +14,7 @@ export function TopBar() {
         <ThemeToggle />
       </div>
       <div className="hidden items-center gap-2 md:flex">
-        <AddPersonButton />
+        <RouteAwareAddButton />
         {/* Slot reserved for header menu items (export/import in Phase 4). */}
       </div>
     </header>
