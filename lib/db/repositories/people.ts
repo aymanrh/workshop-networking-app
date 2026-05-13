@@ -3,6 +3,7 @@
 import { db } from "../db";
 import { newId } from "@/lib/id";
 import { requestPersistentStorage } from "../persist";
+import { normalizeTags } from "@/lib/tags";
 import type { Closeness, Person } from "../types";
 
 export type NewPerson = {
@@ -24,7 +25,7 @@ export async function createPerson(input: NewPerson): Promise<string> {
     name: input.name,
     role: input.role,
     company: input.company,
-    tags: (input.tags ?? []).map((t) => t.trim().toLowerCase()).filter(Boolean),
+    tags: normalizeTags(input.tags ?? []),
     notes: input.notes,
     closeness: input.closeness ?? "warm",
     createdAt: now,
@@ -42,7 +43,7 @@ export async function updatePerson(
   patch: Partial<Person>,
 ): Promise<void> {
   if (patch.tags) {
-    patch.tags = patch.tags.map((t) => t.trim().toLowerCase()).filter(Boolean);
+    patch.tags = normalizeTags(patch.tags);
   }
   await db.people.update(id, patch);
 }
