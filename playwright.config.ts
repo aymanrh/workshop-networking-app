@@ -9,6 +9,8 @@ export default defineConfig({
   use: {
     baseURL: "http://localhost:3000",
     trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
   },
   projects: [
     {
@@ -21,5 +23,9 @@ export default defineConfig({
     url: "http://localhost:3000",
     reuseExistingServer: true,
     timeout: 60_000,
+    env: {
+      // Disables `output: "export"` so dev mode can serve dynamic [id] routes.
+      E2E: "1",
+    },
   },
 });
