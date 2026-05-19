@@ -23,96 +23,107 @@ a{color:#4a9eff}
 .info{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1rem;font-size:.9rem;color:#1e40af;margin:.75rem 0}
 .setup-tool{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
 .setup-tool h3{font-size:1rem;font-weight:600;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
-.setup-step{margin:.6rem 0;font-size:.9rem;color:#475569}
-.wa-box{background:#dcfce7;border:1px solid #86efac;border-radius:10px;padding:1.25rem;margin-top:1.5rem}
-.wa-box h3{font-size:1rem;font-weight:700;color:#14532d;margin-bottom:.75rem}
-.os-tabs{display:flex;gap:.5rem;margin:.75rem 0}
-.os-tab{padding:.35rem .9rem;border-radius:6px;border:1px solid #e2e8f0;cursor:pointer;font-size:.85rem;background:white}
-.os-tab.active{background:#1e3a5f;color:white;border-color:#1e3a5f}
-.os-content{display:none}.os-content.active{display:block}
+.setup-tool p,.setup-step{margin:.6rem 0;font-size:.9rem;color:#475569}
+.setup-step ul{margin:.4rem 0 .4rem 1.2rem}
+.setup-step li{font-size:.9rem;color:#475569;margin:.2rem 0}
+.quick-check{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.quick-check h2{font-size:1rem;font-weight:700;color:#3730a3;margin-bottom:.5rem}
+.quick-check p{font-size:.9rem;color:#3730a3;margin:.5rem 0}
+.ready-box{background:#dcfce7;border:1px solid #86efac;border-radius:10px;padding:1.25rem;margin-top:1.5rem;text-align:center}
+.ready-box h3{font-size:1rem;font-weight:700;color:#14532d;margin-bottom:.4rem}
+.ready-box p{font-size:.9rem;color:#166534}
+.troubleshoot{background:white;border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.troubleshoot h3{font-size:1rem;font-weight:600;margin-bottom:.75rem}
+.troubleshoot table{width:100%;border-collapse:collapse;font-size:.88rem}
+.troubleshoot th,.troubleshoot td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid #e2e8f0;vertical-align:top}
+.troubleshoot th{color:#475569;font-weight:600;background:#f8fafc}
+.troubleshoot tr:last-child td{border-bottom:none}
+.troubleshoot code{background:#f1f5f9;padding:.1rem .35rem;border-radius:4px;font-size:.85rem}
 </style>
 </head>
 <body>
 
 <div class="ws-header">
-  <div><h1>Workshop Setup Guide</h1><p>Complete this before the workshop day</p></div>
+  <div><h1>Workshop Setup Guide</h1><p>Ready in 10 minutes — complete by Thursday, May 28</p></div>
   <span class="branch-badge">setup</span>
 </div>
 
 <div class="ws-main">
 
-  <div class="info">⚡ <strong>Before the workshop:</strong> Complete all steps below and post a screenshot in the WhatsApp group to confirm you're ready. Aim to do this by Thursday, May 28.</div>
-
-  <div class="os-tabs">
-    <button class="os-tab active" onclick="setOS('mac',this)">Mac</button>
-    <button class="os-tab" onclick="setOS('win',this)">Windows</button>
-    <button class="os-tab" onclick="setOS('linux',this)">Linux</button>
+  <div class="quick-check">
+    <h2>⚡ Already a developer? Quick check</h2>
+    <p>Paste this into a terminal:</p>
+    <div class="code-wrap"><code>code --version &amp;&amp; git --version &amp;&amp; node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <p>If all three print versions and <code>node -v</code> shows <strong>v20</strong> or higher, jump to <strong>Step 4 (Claude Code)</strong>, then <strong>Step 5 (Clone)</strong>. Otherwise start at Step 1.</p>
   </div>
 
   <div class="setup-tool">
     <h3>1️⃣ VS Code</h3>
-    <div class="setup-step">Download from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a>. Then install these extensions (search in the Extensions panel):</div>
-    <div class="setup-step">• <strong>ESLint</strong> — flags code errors as you type</div>
-    <div class="setup-step">• <strong>Prettier</strong> — auto-formats code</div>
-    <div class="setup-step">• <strong>GitLens</strong> — makes Git history visible</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-vscode"><label>VS Code installed with ESLint, Prettier, GitLens</label></div>
+    <div class="setup-step">Install from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a>.</div>
+    <div class="setup-step">Open VS Code, press <code>Cmd/Ctrl+Shift+X</code>, install these three:
+      <ul>
+        <li><strong>ESLint</strong> — flags code errors as you type</li>
+        <li><strong>Prettier</strong> — auto-formats code</li>
+        <li><strong>GitLens</strong> — makes Git history visible</li>
+      </ul>
+    </div>
+    <div class="callout"><strong>Mac tip:</strong> open the Command Palette (<code>Cmd+Shift+P</code>) and run <em>Shell Command: Install 'code' command in PATH</em> so the <code>code</code> command works from your terminal.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-vscode"><label>VS Code installed with the three extensions</label></div>
   </div>
 
   <div class="setup-tool">
     <h3>2️⃣ Git</h3>
-    <div class="setup-step">Download from <a href="https://git-scm.com" target="_blank">git-scm.com</a>. Then configure:</div>
+    <div class="setup-step">Install from <a href="https://git-scm.com" target="_blank">git-scm.com</a>, then tell Git who you are (one-time, machine-wide):</div>
     <div class="code-wrap"><code>git config --global user.name "Your Name"</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>git config --global user.email "you@example.com"</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="code-wrap"><code>git --version</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-git"><label>git --version shows a version number</label></div>
+    <div class="callout">Already configured? Run <code>git config --global user.name</code> — if it prints your name, skip the two commands above.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-git"><label>git --version prints a version</label></div>
   </div>
 
   <div class="setup-tool">
     <h3>3️⃣ Node.js</h3>
-    <div class="setup-step">Download from <a href="https://nodejs.org" target="_blank">nodejs.org</a> — choose the LTS version.</div>
-    <div class="os-content active" id="os-node-mac">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="os-content" id="os-node-win">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="os-content" id="os-node-linux">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="setup-step">Expected: <code>v20.x.x</code> or higher</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-node"><label>node -v shows a version number</label></div>
+    <div class="setup-step">Install <strong>LTS v20 or higher</strong> from <a href="https://nodejs.org" target="_blank">nodejs.org</a>. The installer ships <code>npm</code> too.</div>
+    <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-node"><label>node -v prints v20.x.x or higher</label></div>
   </div>
 
   <div class="setup-tool">
-    <h3>4️⃣ Claude Code (AI assistant — Technical track)</h3>
-    <div class="setup-step">Requires an Anthropic account at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>. Then install Claude Code:</div>
+    <h3>4️⃣ Claude Code</h3>
+    <div class="setup-step">Claude Code is the AI agent we'll drive throughout the workshop.</div>
+    <div class="setup-step">1. Create a free account at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> — the free tier is enough for the workshop.</div>
+    <div class="setup-step">2. Install the CLI:</div>
     <div class="code-wrap"><code>npm install -g @anthropic-ai/claude-code</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="code-wrap"><code>claude --version</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-claude"><label>claude --version shows a version number</label></div>
+    <div class="setup-step">3. Run it once — it will open your browser to sign you in:</div>
+    <div class="code-wrap"><code>claude</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="callout"><strong>No Anthropic account, or <code>npm install -g</code> fails?</strong> Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab instead. You'll lose the auto-execution loop but can still follow along with copy-paste.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-claude"><label>claude --version prints a version (or claude.ai is open in a tab)</label></div>
   </div>
 
   <div class="setup-tool">
-    <h3>5️⃣ Codex in VS Code (AI assistant — Non-Technical alternative)</h3>
-    <div class="setup-step">Requires a GitHub account and an OpenAI account at <a href="https://platform.openai.com" target="_blank">platform.openai.com</a>.</div>
-    <div class="setup-step">In VS Code: Extensions → search <strong>Codex</strong> → Install → Cmd+Shift+P → <strong>Codex: Set API Key</strong></div>
-    <div class="callout">💬 Non-technical participants can also use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab — no installation needed.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-codex"><label>Codex or claude.ai ready</label></div>
-  </div>
-
-  <div class="setup-tool">
-    <h3>6️⃣ Clone the workshop repo</h3>
+    <h3>5️⃣ Clone the workshop repo</h3>
     <div class="code-wrap"><code>git clone https://github.com/aymanrh/workshop-networking-app.git</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>cd workshop-networking-app</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="code-wrap"><code>git branch -a</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="setup-step">Expected: two branches — <code>main</code> (finished v1 app for reference) and <code>setup</code> (starter scaffold you'll build on during the workshop).</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-repo"><label>Repo cloned, both branches visible</label></div>
+    <div class="code-wrap"><code>code .</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="setup-step">That opens the repo in VS Code. You'll see two branches: <code>main</code> (the finished v1 app for reference) and <code>setup</code> (the starter scaffold and workshop materials — this guide lives here).</div>
+    <div class="setup-step">Switch to the workshop branch before we meet:</div>
+    <div class="code-wrap"><code>git checkout setup</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-repo"><label>Repo open in VS Code on the setup branch</label></div>
   </div>
 
-  <div class="wa-box">
-    <h3>📱 WhatsApp confirmation</h3>
-    <p style="font-size:.9rem;color:#166534;margin-bottom:.75rem">Once all steps are done, take a screenshot showing your terminal with these three commands and post it in the workshop WhatsApp group:</p>
-    <div class="code-wrap"><code>node -v && git --version && claude --version</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <p style="font-size:.85rem;color:#166534;margin-top:.5rem">This confirms you're ready and helps the facilitator identify who needs pre-workshop support.</p>
+  <div class="ready-box">
+    <h3>✅ You're ready</h3>
+    <p>When the boxes above are all ticked, you're set. See you on <strong>May 30</strong>.</p>
+  </div>
+
+  <div class="troubleshoot">
+    <h3>If something fails</h3>
+    <table>
+      <tr><th>Symptom</th><th>Fix</th></tr>
+      <tr><td><code>command not found: code</code> (Mac)</td><td>VS Code → <code>Cmd+Shift+P</code> → <em>Shell Command: Install 'code' command in PATH</em></td></tr>
+      <tr><td><code>npm install -g</code> permission error</td><td>Mac/Linux: prefix with <code>sudo</code>. Windows: run terminal as Administrator.</td></tr>
+      <tr><td><code>claude</code> won't open the browser</td><td>Try <code>claude --version</code> first; if it works, retry <code>claude</code>. Still stuck? Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab.</td></tr>
+      <tr><td>Anything else</td><td>Drop a message in the workshop WhatsApp group — a facilitator will help.</td></tr>
+    </table>
   </div>
 
 </div>
@@ -138,14 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cb.addEventListener('change', () => saveCheck(cb, cb.dataset.ck))
   })
 })
-</script>
-<script>
-function setOS(os, btn) {
-  document.querySelectorAll('.os-tab').forEach(b => b.classList.remove('active'))
-  btn.classList.add('active')
-  document.querySelectorAll('.os-content').forEach(c => c.classList.remove('active'))
-  document.querySelectorAll('[id^="os-"][id$="-' + os + '"]').forEach(c => c.classList.add('active'))
-}
 </script>
 </body>
 </html>
