@@ -2,7 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # Deploy on main pushes (the v1 app) AND on setup pushes (the
+    # workshop guide bundled at /setup/). Either change should refresh
+    # the published Pages site.
+    branches: [main, setup]
   workflow_dispatch:
 
 permissions:
