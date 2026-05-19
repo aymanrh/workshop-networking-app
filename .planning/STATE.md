@@ -53,7 +53,7 @@ Decisions are logged in PROJECT.md Key Decisions table. Initial decisions set du
 
 ### Pending Todos
 
-None yet.
+- [deploy] Fix dynamic-route 404 on deployed GH Pages — `.planning/todos/pending/2026-05-19-fix-dynamic-route-404-gh-pages.md`
 
 ### Blockers/Concerns
 
