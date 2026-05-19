@@ -6,8 +6,6 @@ A local-first personal networking / mini-CRM for working professionals — track
 
 This repo is the demo project for a 2-hour hands-on workshop teaching the **GSD** (spec-driven AI development) framework with **Claude Code**. The codebase is intentionally readable, conventional, and forkable — every commit, every file is something a workshop attendee should be able to extend.
 
-Workshop date: **2026-05-30** · Reference: <https://aymanrh.github.io/workshop-starter-kit-30-05-25/>
-
 ---
 
 ## Features (v1)
