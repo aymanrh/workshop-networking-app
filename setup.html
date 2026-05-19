@@ -41,7 +41,7 @@ a{color:#4a9eff}
 
 <div class="ws-main">
 
-  <div class="info">⚡ <strong>Before the workshop:</strong> Complete all steps below and post a screenshot in the WhatsApp group to confirm you're ready. Aim to do this 24 hours before the session.</div>
+  <div class="info">⚡ <strong>Before the workshop:</strong> Complete all steps below and post a screenshot in the WhatsApp group to confirm you're ready. Aim to do this by Thursday, May 28.</div>
 
   <div class="os-tabs">
     <button class="os-tab active" onclick="setOS('mac',this)">Mac</button>
@@ -50,19 +50,12 @@ a{color:#4a9eff}
   </div>
 
   <div class="setup-tool">
-    <h3>1️⃣ Node.js</h3>
-    <div class="setup-step">Download from <a href="https://nodejs.org" target="_blank">nodejs.org</a> — choose the LTS version.</div>
-    <div class="os-content active" id="os-node-mac">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="os-content" id="os-node-win">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="os-content" id="os-node-linux">
-      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="setup-step">Expected: <code>v20.x.x</code> or higher</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-node"><label>node -v shows a version number</label></div>
+    <h3>1️⃣ VS Code</h3>
+    <div class="setup-step">Download from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a>. Then install these extensions (search in the Extensions panel):</div>
+    <div class="setup-step">• <strong>ESLint</strong> — flags code errors as you type</div>
+    <div class="setup-step">• <strong>Prettier</strong> — auto-formats code</div>
+    <div class="setup-step">• <strong>GitLens</strong> — makes Git history visible</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-vscode"><label>VS Code installed with ESLint, Prettier, GitLens</label></div>
   </div>
 
   <div class="setup-tool">
@@ -75,12 +68,19 @@ a{color:#4a9eff}
   </div>
 
   <div class="setup-tool">
-    <h3>3️⃣ VS Code</h3>
-    <div class="setup-step">Download from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a>. Then install these extensions (search in the Extensions panel):</div>
-    <div class="setup-step">• <strong>ESLint</strong> — flags code errors as you type</div>
-    <div class="setup-step">• <strong>Prettier</strong> — auto-formats code</div>
-    <div class="setup-step">• <strong>GitLens</strong> — makes Git history visible</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-vscode"><label>VS Code installed with ESLint, Prettier, GitLens</label></div>
+    <h3>3️⃣ Node.js</h3>
+    <div class="setup-step">Download from <a href="https://nodejs.org" target="_blank">nodejs.org</a> — choose the LTS version.</div>
+    <div class="os-content active" id="os-node-mac">
+      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <div class="os-content" id="os-node-win">
+      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <div class="os-content" id="os-node-linux">
+      <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <div class="setup-step">Expected: <code>v20.x.x</code> or higher</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-node"><label>node -v shows a version number</label></div>
   </div>
 
   <div class="setup-tool">
@@ -101,11 +101,11 @@ a{color:#4a9eff}
 
   <div class="setup-tool">
     <h3>6️⃣ Clone the workshop repo</h3>
-    <div class="code-wrap"><code>git clone https://github.com/nourax/new-application-430.git</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="code-wrap"><code>cd new-application-430</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-wrap"><code>git clone https://github.com/aymanrh/workshop-networking-app.git</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-wrap"><code>cd workshop-networking-app</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>git branch -a</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="setup-step">Expected: you should see 4 branches: 00-empty, 01-planning, 02-discussion, 03-milestone</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-repo"><label>Repo cloned, 4 branches visible</label></div>
+    <div class="setup-step">Expected: two branches — <code>main</code> (finished v1 app for reference) and <code>setup</code> (starter scaffold you'll build on during the workshop).</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setup-repo"><label>Repo cloned, both branches visible</label></div>
   </div>
 
   <div class="wa-box">

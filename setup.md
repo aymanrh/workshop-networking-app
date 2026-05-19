@@ -2,21 +2,19 @@
 
 **Complete this before the workshop day**
 
-> **Before the workshop:** Complete all steps below and post a screenshot in the WhatsApp group to confirm you're ready. Aim to do this 24 hours before the session.
+> **Before the workshop:** Complete all steps below and post a screenshot in the WhatsApp group to confirm you're ready. Aim to do this by Thursday, May 28.
 
 ---
 
-## 1. Node.js
+## 1. VS Code
 
-Download from [nodejs.org](https://nodejs.org) — choose the LTS version.
+Download from [code.visualstudio.com](https://code.visualstudio.com). Then install these extensions (search in the Extensions panel):
 
-```
-node -v
-```
+- **ESLint** — flags code errors as you type
+- **Prettier** — auto-formats code
+- **GitLens** — makes Git history visible
 
-Expected: `v20.x.x` or higher
-
-- [ ] `node -v` shows a version number
+- [ ] VS Code installed with ESLint, Prettier, GitLens
 
 ---
 
@@ -34,15 +32,17 @@ git --version
 
 ---
 
-## 3. VS Code
+## 3. Node.js
 
-Download from [code.visualstudio.com](https://code.visualstudio.com). Then install these extensions (search in the Extensions panel):
+Download from [nodejs.org](https://nodejs.org) — choose the LTS version.
 
-- **ESLint** — flags code errors as you type
-- **Prettier** — auto-formats code
-- **GitLens** — makes Git history visible
+```
+node -v
+```
 
-- [ ] VS Code installed with ESLint, Prettier, GitLens
+Expected: `v20.x.x` or higher
+
+- [ ] `node -v` shows a version number
 
 ---
 
@@ -74,14 +74,14 @@ In VS Code: Extensions → search **Codex** → Install → `Cmd+Shift+P` → **
 ## 6. Clone the workshop repo
 
 ```
-git clone https://github.com/nourax/new-application-430.git
-cd new-application-430
+git clone https://github.com/aymanrh/workshop-networking-app.git
+cd workshop-networking-app
 git branch -a
 ```
 
-Expected: you should see 4 branches: `00-empty`, `01-planning`, `02-discussion`, `03-milestone`
+Expected: you should see two branches — `main` (the finished v1 app for reference) and `setup` (the starter scaffold you'll build on during the workshop).
 
-- [ ] Repo cloned, 4 branches visible
+- [ ] Repo cloned, both branches visible
 
 ---
 
