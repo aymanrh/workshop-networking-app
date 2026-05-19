@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-05-12)
 Phase: 4 of 4 (Search, Seed, Polish & Ship — complete)
 Plan: 16 of 16
 Status: All phases shipped; ready for milestone lifecycle
-Last activity: 2026-05-19 — Quick task 20260519: README cleanup (drop workshop date + external link) and create orphan `setup` branch from starter-kit; pushed to origin/setup.
+Last activity: 2026-05-19 — Quick task 20260519 (multi-round): README cleanup; orphan `setup` branch from starter-kit; setup-branch redesign (drop screenshot/Codex, add quick-check, reorder VS Code first); deploy.yml extended to bundle `setup` HTML under /setup/ and to trigger on setup pushes.
 
 Progress: [██████████] 100%
 
