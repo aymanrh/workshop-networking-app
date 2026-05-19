@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-05-12)
 Phase: 4 of 4 (Search, Seed, Polish & Ship — complete)
 Plan: 16 of 16
 Status: All phases shipped; ready for milestone lifecycle
-Last activity: 2026-05-19 — Quick task 20260519 (multi-round): README cleanup; orphan `setup` branch from starter-kit; setup-branch redesign (drop screenshot/Codex, add quick-check, reorder VS Code first); deploy.yml extended to bundle `setup` HTML under /setup/ and to trigger on setup pushes.
+Last activity: 2026-05-19 — Quick task 20260519 (round 4): full all-page audit on the `setup` branch (overview, workshop, agenda-participant, agenda-facilitator, README) collapsed onto the actual 2-branch model (`setup` + `main`); added parallel `setup-codex.md/html` for the Codex track. GH Pages live and verified.
 
 Progress: [██████████] 100%
 

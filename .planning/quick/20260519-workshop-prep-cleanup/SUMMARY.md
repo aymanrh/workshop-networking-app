@@ -9,6 +9,7 @@ commits:
   - fee5089   # setup: date / step reorder / repo URL
   - a5c2a03   # setup: zero-friction audit (drop screenshot+Codex, add quick-check)
   - 18b7cb6   # main: deploy.yml also triggers on setup pushes
+  - adf0bc5   # setup: full all-page audit + Codex track (round 4)
 ---
 
 # Quick Task Summary: Workshop Prep Cleanup
@@ -70,8 +71,33 @@ Shipped as two commits on `setup` (content) and two commits on `main` (deploy pl
 - `git status` on `main` after all rounds → clean
 - Worktree `_setup-edit` removed; `git worktree list` shows only the main repo
 
+## Round 4 — All-page audit + Codex setup variant
+
+Per follow-up instruction ("I want a version of setup for Codex and I want to see all pages like this on HTML and fix and audit all pages"), the remaining workshop pages were rewritten on `setup` and a parallel Codex setup variant created. Shipped as a single commit `adf0bc5`.
+
+**Pedagogical shift:** the original materials assumed a **4-branch walkthrough** (`00-empty` → `01-planning` → `02-discussion` → `03-milestone`) — branches that don't exist on this repo. Rewrote everything around the actual 2-branch reality: the workshop runs entirely on `setup` (live build with GSD), and `main` is the finished v1 reference accessed via `git show main:...` (never `git checkout main` mid-session — that blows away the group's `.planning/` work).
+
+**Per file:**
+
+- `README.md` (on setup): drop the 4-branch ASCII map and WhatsApp screenshot ask; point at `setup.md` OR `setup-codex.md` based on AI track
+- `overview.md/html`: replace the 4-branch "Branch Map" cards with a 2-row repo-map table; new "2-hour arc at a glance" table; new "Compare with the reference" block of copy-pastable `git show main:...` commands; "Pick your AI track" section linking both setup variants
+- `workshop.md/html`: single continuous guide for the 2-hour live build (was a per-branch guide labelled "Step 00 — Start Here / 00-empty"); 5 steps cover preflight, opening the AI tool, `/gsd-new-project`, `/gsd-discuss-phase`, `/gsd-execute-phase` + ship; Technical/Non-Technical track tabs preserved on every step
+- `agenda-participant.md/html`: "Branch" column repurposed into a "Step pointer into workshop.md" column; agenda items re-labelled around GSD commands rather than branch names
+- `agenda-facilitator.md/html`: pre-workshop checklist now lists both setup variants and adds a "GH Pages deploy green" check; "all 4 branches verified" replaced with `main` + `setup` verification; watch-fors include "Anyone trying to `git checkout main` mid-session"; talking points re-anchored to GSD command transitions
+- `setup.md/html`: track-switcher banner added pointing at the new Codex variant
+- `setup-codex.md/html` (new): mirror of `setup.*` with step 4 being the Codex VS Code extension + OpenAI API key (claude.ai browser fallback retained)
+
+**Final state on setup branch:** 14 files (7 md + 7 html). Zero residual references to `00-empty` / `01-planning` / `02-discussion` / `03-milestone`, the `nourax/new-application-430` repo URL, or the WhatsApp screenshot gate (other than as a help-channel fallback in troubleshooting tables).
+
+**Verification:**
+
+- Manual workflow_dispatch run `26117754099` succeeded (~50s build + 10s deploy)
+- Live URLs verified via WebFetch:
+  - `https://aymanrh.github.io/workshop-networking-app/setup/overview.html` — only setup + main branches in repo map; setup-codex.html in file list; "Pick your AI track" links both; "Compare with the reference" block present
+  - `https://aymanrh.github.io/workshop-networking-app/setup/setup-codex.html` — step 4 is Codex; platform.openai.com referenced; track-switcher banner links setup.html; step 5 clones the right repo
+
 ## Out of Scope (deferred)
 
-- Fix for dynamic-route 404 on GH Pages — captured in `.planning/todos/pending/2026-05-19-fix-dynamic-route-404-gh-pages.md` (now somewhat overshadowed by the deploy-workflow changes here, but still real)
-- Cleanup of leaked build artifacts on the starter-kit source (`playwright-report/`, `test-results/`, `tsconfig.tsbuildinfo`)
-- Audit of the other workshop materials on `setup` (`overview.md/html`, `agenda-*.md/html`, `workshop.md/html`) — only `setup.*` was redesigned in Round 3
+- Fix for dynamic-route 404 on GH Pages — captured in `.planning/todos/pending/2026-05-19-fix-dynamic-route-404-gh-pages.md` (still real)
+- Cleanup of leaked build artifacts on the starter-kit source (`playwright-report/`, `test-results/`, `tsconfig.tsbuildinfo`) — copied as-is to the setup branch
+- GitHub Actions runner deprecation warning: `actions/checkout@v4`, `actions/setup-node@v4`, `actions/upload-artifact@v4`, `pnpm/action-setup@v4` run on Node 20, which is removed on 2026-09-16. Not urgent but worth a pre-September follow-up
