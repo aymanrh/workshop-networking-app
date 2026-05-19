@@ -39,6 +39,16 @@ jobs:
       # index.html means a hard refresh of /people/abc still hydrates the app.
       - run: cp out/index.html out/404.html
 
+      # Bundle the `setup` branch's static HTML at /setup/ so attendees can
+      # reach the workshop guide at /workshop-networking-app/setup/setup.html.
+      - uses: actions/checkout@v4
+        with:
+          ref: setup
+          path: setup-branch
+      - run: |
+          mkdir -p out/setup
+          rsync -a --exclude='.git' --exclude='.github' setup-branch/ out/setup/
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
