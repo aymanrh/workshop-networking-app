@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-05-12)
 Phase: 4 of 4 (Search, Seed, Polish & Ship — complete)
 Plan: 16 of 16
 Status: All phases shipped; ready for milestone lifecycle
-Last activity: 2026-05-13 — Phase 4 complete: global search popover, JSON export/import, seed dataset + first-run prompt, Home page, README rewrite, Playwright smoke E2E; 28/28 tests pass; build green.
+Last activity: 2026-05-19 — Quick task 20260519: README cleanup (drop workshop date + external link) and create orphan `setup` branch from starter-kit; pushed to origin/setup.
 
 Progress: [██████████] 100%
 
@@ -58,6 +58,12 @@ Decisions are logged in PROJECT.md Key Decisions table. Initial decisions set du
 ### Blockers/Concerns
 
 None yet.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 20260519 | Workshop prep cleanup: README + orphan `setup` branch | 2026-05-19 | becfdfe / 950a6bd | [20260519-workshop-prep-cleanup](./quick/20260519-workshop-prep-cleanup/) |
 
 ## Deferred Items
 
