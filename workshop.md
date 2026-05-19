@@ -1,79 +1,93 @@
-# Workshop — Step 00: Start Here
+# Workshop — Build a real app with GSD in 2 hours
 
-**AI-Assisted Development with GSD** · 2 hours · Groups of 5–7 · Branch: `00-empty`
+**AI-Assisted Development with GSD · 2 hours · Groups of 5–7 · Branch: `setup`**
 
----
-
-## Your pre-assigned role for this session
-
-| Role | Badge |
-|------|-------|
-| BA / PO | Product perspective |
-| Developer | Technical feasibility |
-| Tester / QA | Quality perspective |
-
-> Your role was assigned from your registration — ask your facilitator if unsure.
+> **Core idea:** Your prompt IS your spec. What you tell the AI right now determines everything it builds downstream — the roadmap, the requirements, the architecture, the tests. Take your time at each step.
 
 ---
 
-> **Core idea:** Your prompt IS your spec. What you tell the AI right now determines everything it builds downstream — the roadmap, the requirements, the architecture. Take your time here.
+## Your role today
+
+| Role | Perspective |
+|------|-------------|
+| **BA / PO** | Product perspective |
+| **Developer** | Technical feasibility |
+| **Tester / QA** | Quality perspective |
+
+Pre-assigned from your registration. Each group has all 3 roles — everyone contributes to every step.
 
 ---
 
-## Step 1 — Preflight: confirm your setup is ready
+## How this guide is structured
 
-Before you can run any AI tools, your machine needs Node.js, Git, VS Code, and either Claude Code or Codex. If you're not set up, open `setup.html` (or `setup.md`) now.
+You'll work through **5 steps** in 2 hours. Each step:
 
-- [ ] Node.js installed — `node -v` shows a version number
-- [ ] Git installed — `git --version` works
-- [ ] VS Code open with this project folder
-- [ ] Claude Code or Codex is ready (see Step 2)
+- Has a **Technical** path (Claude Code in your terminal) and a **Non-Technical** path (Codex sidebar or claude.ai in a browser tab). Use whichever your setup got you.
+- Ends with a checkpoint. Tick it before moving on.
+- Points back at the **`main`** branch (the finished v1) when you want to see "what's this supposed to look like?".
+
+We stay on the **`setup`** branch the whole time. Nothing to switch — what we build, we build live.
 
 ---
 
-## Step 2 — Open your AI assistant
+## Step 1 — Confirm your setup
 
-You can use either Claude Code (terminal-based, runs GSD commands directly) or Codex/Claude in a browser tab (great for non-technical roles — just paste prompts).
+Before anything else, prove your machine is ready.
 
-### Technical (Claude Code)
+- [ ] Repo is open in VS Code on the `setup` branch — run `git branch --show-current` to confirm
+- [ ] Node 20+: `node -v`
+- [ ] Git: `git --version`
+- [ ] AI assistant works:
+  - **Claude Code track:** run `claude --version` in the terminal
+  - **Codex track:** open the Codex sidebar in VS Code and send `say hello`
+  - **Browser fallback:** [claude.ai](https://claude.ai) is open in a tab
 
-Open your terminal inside VS Code (`Ctrl+`` ` or `Cmd+`` `) and run:
+If any of these fail, ping the facilitator now — Step 2 needs all of them.
+
+- [ ] All four checks pass
+
+---
+
+## Step 2 — Open your AI assistant in the right place
+
+**Technical (Claude Code)**
+
+Open the integrated terminal in VS Code (`` Ctrl+` `` or `` Cmd+` ``) and run:
 
 ```
 claude
 ```
 
-Expected: Claude Code launches and shows a prompt.
+You should see the Claude Code prompt. Leave that pane open — every GSD command in this guide goes here.
 
-### Non-Technical (Claude / Codex)
+**Non-Technical (Codex or claude.ai)**
 
-Open [claude.ai](https://claude.ai) in a browser tab, or open the Codex sidebar in VS Code (Extensions → Codex). You'll paste prompts directly into the chat.
+- **Codex:** open the Codex sidebar from VS Code's left rail. Click "New chat" if it's blank.
+- **claude.ai:** open [claude.ai](https://claude.ai) in a browser tab next to your VS Code window.
 
-- [ ] AI assistant is open and ready to accept input
+For the non-technical path, every "run this command" instruction below gives you a **paste-into-chat** version. Use it instead of the slash-command.
+
+- [ ] AI assistant is open and accepting input
 
 ---
 
-## Step 3 — Start a new project
+## Step 3 — Kick off a fresh project together (8 min)
 
-**What this does:** Launches the GSD project wizard. It asks you a series of questions about what you're building — your answers become `PROJECT.md`, `ROADMAP.md`, `REQUIREMENTS.md`, and 4 research files. The AI does the research; you provide the intent.
+**What this does:** Launches the GSD project wizard. It asks 6–8 questions about what you're building — your answers become `PROJECT.md`, `ROADMAP.md`, `REQUIREMENTS.md`, plus four research files (SUMMARY, PITFALLS, ARCHITECTURE, STACK, FEATURES). The AI does the research; you provide the intent.
 
-### Technical
+**Technical**
 
 ```
-/gsd new-project
+/gsd-new-project
 ```
 
-Type this in your Claude Code terminal and press Enter.
+**Non-Technical** — paste into Codex / claude.ai:
 
-### Non-Technical
+> Start a new GSD project with me for a "personal networking app" — a local-first mini-CRM for working professionals to track people they meet at events. Ask me setup questions one at a time — project name, the problem it solves, who it's for, core features, what's out of scope, technology preferences, constraints, what success looks like. After I answer all questions, write the planning files: `PROJECT.md`, `ROADMAP.md`, and `REQUIREMENTS.md` under `.planning/`.
 
-> **Paste into Claude or Codex:**
->
-> Start a new project with me. Ask me setup questions one at a time — project name, the problem it solves, who it's for, core features, what's out of scope, technology preferences, constraints, and what success looks like. After I answer all questions, generate the planning files: PROJECT.md, ROADMAP.md, and REQUIREMENTS.md.
+**What to expect**
 
-**What to expect:**
-
-GSD will ask 6–8 questions, one at a time:
+GSD asks 6–8 questions, one at a time:
 
 1. What is your project name?
 2. What problem does it solve? Who is it for?
@@ -84,66 +98,149 @@ GSD will ask 6–8 questions, one at a time:
 7. What does success look like?
 8. Any other context?
 
-After all answers, it runs research agents and creates `.planning/`
+After all answers, it runs research agents and creates the `.planning/` directory.
 
----
+### Answer the questions together, as a group
 
-## Step 4 — Answer the questions together, as a group
+**Do not answer alone.** Each GSD question is a product decision. One person types — everyone contributes from their role's perspective.
 
-**Do not answer alone.** Each GSD question is a product decision. Use your role to contribute your perspective. One person types or pastes the agreed answer.
+> ⏱ **Timer: 8 minutes** — covers all questions.
 
-> **Timer: 8 minutes** — covers all questions · one person types · everyone contributes
-
-### GSD Question 1 of 8
-
-> "What is your project name and what problem does it solve? Who is it for?"
-
-| Role | Angle |
-|------|-------|
-| **BA / PO** | Who is the user? What pain point are we solving? What does success look like for them? |
-| **Developer** | Is this problem clear enough to build? What's technically ambiguous? |
-| **Tester / QA** | How would we verify this solves the stated problem? What's measurable? |
-
-### GSD Question 2 of 8
-
-> "What are the core features for version 1?"
-
-| Role | Angle |
-|------|-------|
-| **BA / PO** | What delivers the most user value first? What's a nice-to-have vs. must-have? |
-| **Developer** | Which features are technically risky or time-consuming? What's the simplest slice? |
-| **Tester / QA** | Which features are hardest to test or most likely to break? What needs acceptance criteria? |
-
-### GSD Question 3 of 8
-
-> "What is explicitly out of scope for v1?"
-
-| Role | Angle |
-|------|-------|
-| **BA / PO** | What are we deliberately NOT building? What business risk does this create? |
-| **Developer** | What technical shortcuts are acceptable because of this scope? |
-| **Tester / QA** | What edge cases do we explicitly not need to test? What's the risk of that? |
+| Role | What you bring |
+|------|----------------|
+| **BA / PO** | Who is the user? What pain point? What does success look like? |
+| **Developer** | Is the spec clear enough to build? What's technically ambiguous? |
+| **Tester / QA** | How would we verify this? What's measurable? What edge cases? |
 
 > **Tip:** The AI will accept any answer but build exactly what you describe. Vague input = vague output. Specific, opinionated answers produce better plans.
 
+### Peek at the reference
+
+When GSD finishes, compare your output with the v1 reference:
+
+```
+git show main:.planning/PROJECT.md
+```
+
+(Press `q` to quit the pager.)
+
+- [ ] `.planning/PROJECT.md`, `ROADMAP.md`, `REQUIREMENTS.md`, and `research/` exist on disk
+
 ---
 
-## Step 5 — Switch to the output branch
+## Step 4 — Discuss phase 1 (15 min)
 
-**What this does:** Instead of waiting for GSD to finish (it can take 5–10 minutes), we've pre-built the output on the `01-planning` branch. Switch now to see what a completed run looks like — then explore and discuss.
+**What this does:** Before writing any code, GSD pulls out the *decisions* the agent would otherwise make on its own — the gray areas in your spec. You answer them, the agent locks them in `CONTEXT.md`, and the plan that follows respects every answer.
 
-### Technical
+This is the BDD-before-the-Gherkin moment. It's the single biggest place where humans stay in the loop.
+
+**Technical**
 
 ```
-git checkout 01-planning
+/gsd-discuss-phase 1
 ```
 
-### Non-Technical
+**Non-Technical** — paste into Codex / claude.ai:
 
-> **Paste into Claude or Codex:**
->
-> Switch to the 01-planning branch so we can see the output that GSD would have produced. Then open the workshop.html file on that branch to continue.
+> Run `/gsd-discuss-phase 1` on the project we just created. Surface the gray areas in phase 1 — the decisions the agent would otherwise make by itself. Ask me about each one in turn, then write `.planning/phases/01-*/01-CONTEXT.md` and `01-DISCUSSION-LOG.md` capturing every answer.
 
-After switching branches, open **workshop.html** in your browser to continue — it will have the steps for exploring the planning output.
+### Watch for
 
-- [ ] Switched to `01-planning` branch and opened `workshop.html`
+| Role | What to look for |
+|------|------------------|
+| **BA / PO** | Anything the AI inferred from your spec — is it what you meant? |
+| **Developer** | Architectural choices being made implicitly. Push to surface them. |
+| **Tester / QA** | Anything left to "agent's discretion" — that's a test case you don't have yet. |
+
+> **Concept hook:** "`CONTEXT.md` is your Gherkin before the Gherkin. Everything left to the agent's discretion is a test case you don't yet have."
+
+### Peek at the reference
+
+```
+git show main:.planning/phases/01-foundation-static-export-spine/01-CONTEXT.md
+```
+
+- [ ] `01-CONTEXT.md` written, with the group's decisions visible in the "Decisions" section
+
+---
+
+## Step 5 — Execute the phase, run the app, ship (30 min)
+
+**What this does:** GSD turns the locked context into a detailed `PLAN.md`, then executes it — writes code, runs the unit tests, runs Playwright E2E, produces a `VERIFICATION.md` flagging anything a human still needs to check. Then you ship.
+
+**Technical**
+
+```
+/gsd-execute-phase 1
+```
+
+This will take a few minutes. While it runs, the facilitator is showing slides on what GSD is doing under the hood (planning → atomic plans → wave-based execution → verification).
+
+**Non-Technical** — paste into Codex / claude.ai:
+
+> Now run `/gsd-execute-phase 1`. Write `.planning/phases/01-*/01-PLAN.md` first, then implement everything in the plan: Next.js scaffolding, Dexie schema, basic shell, dark mode, dynamic `[id]` routes proven, first GH Pages deploy stub. Run `npm install`, run the test suite, and write `01-SUMMARY.md` + `01-VERIFICATION.md` when done.
+
+### Run the app
+
+When `execute-phase` finishes, you should be able to:
+
+```
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). The starter shell should render — sidebar, top bar, empty People list, dark-mode toggle.
+
+### Run the tests
+
+```
+npm test
+```
+
+Vitest runs. You should see green dots. If anything's red, that's a teaching moment — show the failure to the facilitator.
+
+### UAT discussion (5 min, as a group)
+
+Open `.planning/phases/01-*/01-VERIFICATION.md`. The agent has written down what it *couldn't* verify on its own — the bits that need a human.
+
+| Role | What you're checking |
+|------|----------------------|
+| **BA / PO** | Does this feel like the product you described? |
+| **Developer** | Is the code shape something you'd build on? |
+| **Tester / QA** | What's the agent admitting it can't test? That's your scope. |
+
+> **Concept hook:** "The AI wrote the code AND the tests. What does a human still own? `VERIFICATION.md` is where the AI admits what it couldn't check. That's your role."
+
+### Ship + open milestone 2
+
+```
+/gsd-ship
+/gsd-new-milestone
+```
+
+Or for the non-technical track:
+
+> Ship the current milestone with `/gsd-ship`, then open milestone 2 with `/gsd-new-milestone`. The next milestone is integrations + CI/CD — we won't build it today, just open it as a teaser.
+
+- [ ] App runs locally on `http://localhost:3000`
+- [ ] Tests pass
+- [ ] `01-VERIFICATION.md` read and discussed
+- [ ] Milestone 1 shipped, milestone 2 opened
+
+---
+
+## You're done
+
+In 2 hours your group went from "blank repo" to "running, tested, shipped v1 scaffold" — with every decision surfaced and captured, not buried inside the agent.
+
+**Compare with `main`** at the end if you want to see how far the reference goes — full People/Events CRUD, search, JSON export, all 4 phases shipped.
+
+```
+git diff setup main --stat
+```
+
+**What to try after today**
+
+- Fork the repo and run `/gsd-next` to keep going — phase 2 onwards is yours
+- Read `.planning/research/PITFALLS.md` on `main` for what tripped us up the first time
+- Try the same workflow on a project you actually want to build

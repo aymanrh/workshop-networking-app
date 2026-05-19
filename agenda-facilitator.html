@@ -12,37 +12,18 @@ a{color:#4a9eff}
 .ws-header p{font-size:0.8rem;opacity:.7;margin-top:0.2rem}
 .branch-badge{background:#4a9eff;color:white;padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:700;white-space:nowrap}
 .ws-main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
-.step{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
-.track-tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem}
-.tab-btn{flex:1;padding:.55rem 1rem;border:none;cursor:pointer;font-size:.88rem;font-weight:500;background:white;color:#64748b;transition:all .15s}
-.tab-btn.active{background:#1e3a5f;color:white}
-.track{display:none}
-.track.active{display:block}
-.code-wrap{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin:.6rem 0}
-.code-wrap code{background:#0f172a;color:#e2e8f0;padding:.7rem 1rem;font-family:'SF Mono','Fira Code',monospace;font-size:.88rem;flex:1;display:block;white-space:pre-wrap;word-break:break-all;line-height:1.5}
-.copy-btn{background:#334155;color:#94a3b8;border:none;padding:0 1rem;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;transition:background .15s}
-.copy-btn:hover{background:#4a9eff;color:white}
-.copy-btn.copied{background:#22c55e;color:white}
-.prompt-block{background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;margin:.6rem 0}
-.prompt-label{font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
-.prompt-text{font-style:italic;color:#475569;line-height:1.5;margin-bottom:.5rem;font-size:.92rem}
-.prompt-block .copy-btn{background:#f1f5f9;color:#4a9eff;border:1px solid #e2e8f0;border-radius:6px;padding:.3rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600}
-.prompt-block .copy-btn.copied{background:#22c55e;color:white;border-color:#22c55e}
-.role-banner{background:#1e3a5f;color:white;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem}
-.role-banner h3{font-size:.88rem;font-weight:600;opacity:.7;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
-.role-banner .roles-inline{display:flex;gap:.75rem;flex-wrap:wrap}
-.role-pill{padding:.35rem .9rem;border-radius:999px;font-size:.85rem;font-weight:600}
-.rp-ba{background:#d8b4fe;color:#4c1d95}
-.rp-dev{background:#93c5fd;color:#1e3a8a}
-.rp-tester{background:#86efac;color:#14532d}
 .callout{background:#fef3c7;border-left:3px solid #f59e0b;padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.9rem;color:#78350f}
-.divider{border:none;border-top:1px solid #e2e8f0;margin:1.5rem 0}
 .info{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1rem;font-size:.9rem;color:#1e40af;margin:.75rem 0}
+.info code{background:rgba(255,255,255,.55);padding:.1rem .3rem;border-radius:3px}
 .fac-section{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
 .fac-section h2{font-size:1rem;font-weight:700;color:#1e3a5f;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #f1f5f9}
+.fac-section p{font-size:.9rem;color:#475569;margin:.4rem 0}
+.fac-section ul{margin:.4rem 0 .4rem 1.2rem}
+.fac-section li{font-size:.9rem;color:#475569;margin:.2rem 0}
 table{width:100%;border-collapse:collapse;font-size:.88rem}
 th{background:#f8fafc;text-align:left;padding:.6rem .75rem;font-weight:600;color:#475569;font-size:.82rem}
 td{padding:.6rem .75rem;border-top:1px solid #f1f5f9;vertical-align:top}
+td code{background:#f1f5f9;padding:.1rem .35rem;border-radius:4px;font-size:.82rem}
 .tp{background:#fffbeb;border-left:3px solid #f59e0b;padding:.6rem .9rem;border-radius:0 6px 6px 0;font-size:.88rem;margin:.5rem 0;color:#78350f}
 .watch{background:#fef2f2;border-left:3px solid #ef4444;padding:.6rem .9rem;border-radius:0 6px 6px 0;font-size:.88rem;margin:.5rem 0;color:#7f1d1d}
 .precheck{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;font-size:.9rem;border-bottom:1px solid #f1f5f9}
@@ -58,22 +39,23 @@ td{padding:.6rem .75rem;border-top:1px solid #f1f5f9;vertical-align:top}
 </div>
 <div class="ws-main">
 
-  <!-- Pre-workshop checklist -->
+  <div class="info">The workshop runs entirely on the <code>setup</code> branch. Everything is built <strong>live</strong> in 2 hours with GSD. <code>main</code> is the finished v1 — use it as a reference for sanity-checks (<code>git show main:...</code>) but never have participants check it out mid-session.</div>
+
   <div class="fac-section">
     <h2>Pre-Workshop Checklist</h2>
     <div class="precheck"><input type="checkbox" data-ck="f-wa"><label>WhatsApp group created and all registrants invited</label></div>
-    <div class="precheck"><input type="checkbox" data-ck="f-setup"><label>setup.html link shared in WhatsApp group</label></div>
+    <div class="precheck"><input type="checkbox" data-ck="f-setup"><label>Both setup links shared in WhatsApp: <code>setup.html</code> (Claude Code) and <code>setup-codex.html</code> (Codex)</label></div>
     <div class="precheck"><input type="checkbox" data-ck="f-groups"><label>Groups assigned from registration data (balanced by role + experience)</label></div>
-    <div class="precheck"><input type="checkbox" data-ck="f-repo"><label>Repo accessible and all 4 branches verified on GitHub</label></div>
+    <div class="precheck"><input type="checkbox" data-ck="f-repo"><label>Repo accessible — <code>main</code> and <code>setup</code> branches both visible on GitHub</label></div>
+    <div class="precheck"><input type="checkbox" data-ck="f-pages"><label>GH Pages deploy green — open <code>/workshop-networking-app/setup/setup.html</code> and confirm it renders</label></div>
     <div class="precheck"><input type="checkbox" data-ck="f-slides"><label>Slides / screen ready for intro section</label></div>
     <div class="precheck"><input type="checkbox" data-ck="f-rooms"><label>Virtual rooms / breakout groups pre-configured</label></div>
     <div class="precheck"><input type="checkbox" data-ck="f-menti"><label>Menti energizer questions loaded (pick 3 from list below)</label></div>
   </div>
 
-  <!-- Group assignment table -->
   <div class="fac-section">
     <h2>Group Assignment Table</h2>
-    <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem">Fill in from registration data. Aim for: 1–2 BA/PO + 1–2 Developer + 1–2 Tester per group. Mix experience levels.</p>
+    <p>Fill in from registration data. Aim for: 1–2 BA/PO + 1–2 Developer + 1–2 Tester per group. Mix experience levels.</p>
     <table class="group-table">
       <tr><th>Name</th><th>Role (from reg)</th><th>Experience</th><th>Group #</th></tr>
       <tr><td><input type="text" placeholder="Name"></td><td><input type="text" placeholder="BA/Dev/Tester"></td><td><input type="text" placeholder="0-1 / 2-4 / 5+"></td><td><input type="text" placeholder="1"></td></tr>
@@ -84,102 +66,91 @@ td{padding:.6rem .75rem;border-top:1px solid #f1f5f9;vertical-align:top}
     </table>
   </div>
 
-  <!-- Timing table -->
   <div class="fac-section">
     <h2>2-Hour Timing Table</h2>
     <table>
-      <tr><th>Time</th><th>Activity</th><th>Branch</th><th>Facilitator note</th></tr>
+      <tr><th>Time</th><th>Activity</th><th>Step</th><th>Facilitator note</th></tr>
       <tr><td>0:00–0:10</td><td>Welcome + Icebreaker</td><td>—</td><td>Goal: networking + learning + sharing. Pick one icebreaker prompt from section below.</td></tr>
       <tr><td>0:10–0:20</td><td>Spec-driven AI dev intro + Soft skills</td><td>—</td><td>Hook: "Your prompt is your spec." Connect TDD/BDD to GSD. Slides 42, 43, 83 from your deck.</td></tr>
-      <tr><td>0:20–0:28</td><td>Step 00: /gsd new-project</td><td>00-empty</td><td>Show the command. Start the 8-min timer. Switch to 01-planning while they're still discussing.</td></tr>
-      <tr><td>0:28–0:45</td><td>Step 01: File tour + discuss-phase</td><td>01-planning</td><td>Open PITFALLS first — most valuable for non-technical. Then ROADMAP. Show discuss-phase command.</td></tr>
-      <tr><td>0:45–1:00</td><td>Step 02: Discussion output</td><td>02-discussion</td><td>Focus on "agent's discretion" section in CONTEXT.md — this is where surprises come from.</td></tr>
-      <tr><td>1:00–1:30</td><td>Step 03: App + tests + UAT</td><td>03-milestone</td><td>npm install might take 1–2 min. Start it, then talk while it installs. Keep report open during UAT discussion.</td></tr>
-      <tr><td>1:30–1:40</td><td>Ship + new milestone</td><td>03-milestone</td><td>Teaser: "Milestone 2 is integrations + CI/CD. Workshop 2 covers that."</td></tr>
-      <tr><td>1:40–2:00</td><td>Q&amp;A + Wrap-up</td><td>—</td><td>Start with 1–2 seeded questions if room is quiet. Key takeaway: spec + discuss + verify = human in the loop.</td></tr>
+      <tr><td>0:20–0:30</td><td>Step 3: <code>/gsd-new-project</code></td><td>workshop.md · Step 3</td><td>Show the command live. Start the 8-min timer. Cue groups to answer each question together, BA voice first.</td></tr>
+      <tr><td>0:30–0:50</td><td>Tour the planning output</td><td>—</td><td>Open <code>PITFALLS.md</code> first — most valuable for non-technical. Then <code>ROADMAP.md</code>. Compare with <code>main</code>: <code>git show main:.planning/research/PITFALLS.md</code>.</td></tr>
+      <tr><td>0:50–1:05</td><td>Step 4: <code>/gsd-discuss-phase 1</code></td><td>workshop.md · Step 4</td><td>Focus on the "Decisions" section in <code>CONTEXT.md</code>. Ask: "If you hadn't been asked, what would have happened?"</td></tr>
+      <tr><td>1:05–1:30</td><td>Step 5: Execute + run + test</td><td>workshop.md · Step 5</td><td><code>/gsd-execute-phase 1</code> takes 3–8 min. Narrate while it runs (plan → atomic plans → wave-based execution → verification). Then <code>npm install</code> → <code>npm run dev</code> → <code>npm test</code>.</td></tr>
+      <tr><td>1:30–1:45</td><td>UAT discussion + Ship</td><td>workshop.md · Step 5</td><td>Open <code>01-VERIFICATION.md</code> on screen. Walk the "needs human" rows. Then <code>/gsd-ship</code> + <code>/gsd-new-milestone</code>. Teaser: "Milestone 2 is integrations + CI/CD."</td></tr>
+      <tr><td>1:45–2:00</td><td>Q&amp;A + Wrap-up</td><td>—</td><td>Start with 1–2 seeded questions if room is quiet. Key takeaway: spec + discuss + verify = human in the loop.</td></tr>
     </table>
   </div>
 
-  <!-- Talking points per section -->
   <div class="fac-section">
     <h2>Talking Points + Concept Hooks</h2>
-    <p style="font-size:.85rem;font-weight:600;color:#1e3a5f;margin:.75rem 0 .4rem">00-empty → 01-planning transition:</p>
-    <div class="tp">💡 "Your prompt IS your spec. What you tell the AI right now determines the roadmap, the requirements, the architecture, and the tests. Take your time here — the AI will do exactly what you describe, not what you meant."</div>
-    <p style="font-size:.85rem;font-weight:600;color:#1e3a5f;margin:.75rem 0 .4rem">01-planning → 02-discussion transition:</p>
-    <div class="tp">💡 "This is spec-driven development. ROADMAP.md is the spec. The AI will write code against it — not against your memory, not against a Slack message. Your job is to verify the spec reflects your intent before any code is written."</div>
-    <p style="font-size:.85rem;font-weight:600;color:#1e3a5f;margin:.75rem 0 .4rem">02-discussion → 03-milestone transition:</p>
-    <div class="tp">💡 "BDD in practice. CONTEXT.md is your Gherkin before the Gherkin. The decisions captured here tell the planner exactly what to build. Everything left to the agent's discretion is a test case you don't yet have."</div>
-    <p style="font-size:.85rem;font-weight:600;color:#1e3a5f;margin:.75rem 0 .4rem">During UAT discussion on 03:</p>
-    <div class="tp">💡 "Is the testing pyramid still the same? The AI wrote the code AND the tests. What does a human still own? VERIFICATION.md is where the AI admits what it couldn't check. That's your role."</div>
-    <p style="font-size:.85rem;font-weight:600;color:#1e3a5f;margin:.75rem 0 .4rem">When shipping:</p>
-    <div class="tp">💡 "This is the scaffold. Supabase auth, real database, email reminders, CI/CD gates — that's milestone 2. Today shows the workflow. The integrations are Workshop 2."</div>
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.4rem">Before Step 3 (<code>/gsd-new-project</code>):</p>
+    <div class="tp">"Your prompt IS your spec. What you tell the AI right now determines the roadmap, the requirements, the architecture, and the tests. Take your time here — the AI will do exactly what you describe, not what you meant."</div>
+
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.8rem">Between Step 3 and the planning-output tour:</p>
+    <div class="tp">"This is spec-driven development. <code>ROADMAP.md</code> is the spec. The AI will write code against it — not against your memory, not against a Slack message. Your job is to verify the spec reflects your intent before any code is written."</div>
+
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.8rem">Before Step 4 (<code>/gsd-discuss-phase 1</code>):</p>
+    <div class="tp">"BDD in practice. <code>CONTEXT.md</code> is your Gherkin before the Gherkin. The decisions captured here tell the planner exactly what to build. Everything left to the agent's discretion is a test case you don't yet have."</div>
+
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.8rem">During UAT discussion on <code>01-VERIFICATION.md</code>:</p>
+    <div class="tp">"Is the testing pyramid still the same? The AI wrote the code AND the tests. What does a human still own? <code>VERIFICATION.md</code> is where the AI admits what it couldn't check. That's your role."</div>
+
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.8rem">When shipping:</p>
+    <div class="tp">"This is the scaffold. Supabase auth, real database, email reminders, CI/CD gates — that's milestone 2. Today shows the workflow. The integrations are Workshop 2."</div>
   </div>
 
-  <!-- Watch-for notes -->
   <div class="fac-section">
     <h2>Watch For</h2>
-    <div class="watch">⚠️ Groups spending too long on 01-planning file tour — cut to PITFALLS + ROADMAP only if time is tight</div>
-    <div class="watch">⚠️ Technical participants taking over — redirect with "What does the BA think about this?" or "What would the tester verify?"</div>
-    <div class="watch">⚠️ npm install or E2E tests slow on 03-milestone — start them early and fill with UAT discussion while they run</div>
-    <div class="watch">⚠️ Groups stuck on GSD questions — remind them: "One sentence answer is enough. The AI will ask follow-up questions."</div>
+    <div class="watch"><strong>Groups racing through <code>/gsd-new-project</code> answers</strong> — slow them down. One short, opinionated sentence per answer beats a fast paragraph.</div>
+    <div class="watch"><strong>Technical participants taking over</strong> — redirect with "What does the BA think about this?" or "What would the tester verify?"</div>
+    <div class="watch"><strong><code>/gsd-execute-phase 1</code> taking longer than 8 min</strong> — keep the room engaged with the slides on GSD internals; do <em>not</em> let groups jump ahead and run commands out of order.</div>
+    <div class="watch"><strong><code>npm install</code> slow on weak Wi-Fi</strong> — start it as soon as <code>execute-phase</code> finishes; talk over it.</div>
+    <div class="watch"><strong>Groups stuck on GSD questions</strong> — remind them: "One sentence answer is enough. The AI will ask follow-up questions."</div>
+    <div class="watch"><strong>Anyone trying to <code>git checkout main</code> mid-session</strong> — gently stop them. We compare with <code>git show main:...</code> only. Checking out main blows away their <code>.planning/</code> work.</div>
   </div>
 
-  <!-- Icebreaker scripts -->
   <div class="fac-section">
     <h2>Icebreaker Prompts (pick one)</h2>
-    <div class="info">"The most AI-assisted thing I've done is…" <em>(even if it's just autocorrect)</em></div>
-    <div class="info">"My worst or funniest bug story…"</div>
-    <div class="info">"One thing I thought was magic until I understood how it worked…"</div>
+    <ul>
+      <li>"The most AI-assisted thing I've done is…" <em>(even if it's just autocorrect)</em></li>
+      <li>"My worst or funniest bug story…"</li>
+      <li>"One thing I thought was magic until I understood how it worked…"</li>
+    </ul>
   </div>
 
-  <!-- Energizer -->
   <div class="fac-section">
     <h2>Energizer — Would You Rather? (pick 3, set up in Menti)</h2>
-    <p style="font-size:.85rem;color:#64748b;margin-bottom:.75rem">Easy openers:</p>
-    <div class="info">Would you rather have 100 tabs open or lose the one tab you actually need?</div>
-    <div class="info">Would you rather deploy on a Friday evening or present to executives with no prep?</div>
-    <div class="info">Would you rather have all your bugs found by users or by your boss?</div>
-    <p style="font-size:.85rem;color:#64748b;margin:.75rem 0 .5rem">AI themes:</p>
-    <div class="info">Would you rather have AI write your code and you test it, or you write the code and AI tests it?</div>
-    <div class="info">Would you rather trust a feature that passed all tests or one a senior dev eyeballed and approved?</div>
-    <p style="font-size:.85rem;color:#64748b;margin:.75rem 0 .5rem">T-shaped / soft skills:</p>
-    <div class="info">Would you rather be a specialist who knows one thing deeply or a generalist who knows a bit of everything?</div>
-    <div class="info">Would you rather ship fast and fix later or ship slow and ship right?</div>
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.4rem">Easy openers:</p>
+    <ul>
+      <li>Would you rather have 100 tabs open or lose the one tab you actually need?</li>
+      <li>Would you rather deploy on a Friday evening or present to executives with no prep?</li>
+      <li>Would you rather have all your bugs found by users or by your boss?</li>
+    </ul>
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.6rem">AI themes:</p>
+    <ul>
+      <li>Would you rather have AI write your code and you test it, or you write the code and AI tests it?</li>
+      <li>Would you rather trust a feature that passed all tests or one a senior dev eyeballed and approved?</li>
+    </ul>
+    <p style="font-weight:600;color:#1e3a5f;margin-top:.6rem">T-shaped / soft skills:</p>
+    <ul>
+      <li>Would you rather be a specialist who knows one thing deeply or a generalist who knows a bit of everything?</li>
+      <li>Would you rather ship fast and fix later or ship slow and ship right?</li>
+    </ul>
   </div>
 
-  <!-- Q&A seeds -->
   <div class="fac-section">
     <h2>Q&amp;A Seed Questions (use if room is quiet)</h2>
-    <div class="info">"What skill do you think you'll use LESS because of AI? What might you stop developing?"</div>
-    <div class="info">"If the AI wrote the spec AND the tests AND the code — what is the tester's job?"</div>
-    <div class="info">"What's one thing from today you'd do differently in your current project?"</div>
+    <ul>
+      <li>"What skill do you think you'll use LESS because of AI? What might you stop developing?"</li>
+      <li>"If the AI wrote the spec AND the tests AND the code — what is the tester's job?"</li>
+      <li>"What's one thing from today you'd do differently in your current project?"</li>
+    </ul>
   </div>
 
 </div>
 <script>
-function copyCode(btn) {
-  const text = btn.previousElementSibling.textContent.trim()
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = '✓ Copied'
-    btn.classList.add('copied')
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000)
-  })
-}
-function copyPrompt(promptBlock) {
-  const text = promptBlock.querySelector('.prompt-text').textContent.trim()
-  const btn = promptBlock.querySelector('.copy-btn')
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = '✓ Copied'
-    btn.classList.add('copied')
-    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('copied') }, 2000)
-  })
-}
-function switchTab(btn, track) {
-  const step = btn.closest('.step')
-  step.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
-  step.querySelectorAll('.track').forEach(c => c.classList.remove('active'))
-  btn.classList.add('active')
-  step.querySelector('.track.' + track).classList.add('active')
+function saveCheck(cb, key) {
+  try { localStorage.setItem('ws-check-' + key, cb.checked ? '1' : '0') } catch(e) {}
 }
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-ck]').forEach(cb => {
@@ -187,9 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const v = localStorage.getItem('ws-check-' + cb.dataset.ck)
       if (v === '1') cb.checked = true
     } catch(e) {}
-    cb.addEventListener('change', () => {
-      try { localStorage.setItem('ws-check-' + cb.dataset.ck, cb.checked ? '1' : '0') } catch(e) {}
-    })
+    cb.addEventListener('change', () => saveCheck(cb, cb.dataset.ck))
   })
 })
 </script>

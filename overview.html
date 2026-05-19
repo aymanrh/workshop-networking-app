@@ -12,38 +12,30 @@ a{color:#4a9eff}
 .ws-header p{font-size:0.8rem;opacity:.7;margin-top:0.2rem}
 .branch-badge{background:#4a9eff;color:white;padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:700;white-space:nowrap}
 .ws-main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
-.step{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
-.track-tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem}
-.tab-btn{flex:1;padding:.55rem 1rem;border:none;cursor:pointer;font-size:.88rem;font-weight:500;background:white;color:#64748b;transition:all .15s}
-.tab-btn.active{background:#1e3a5f;color:white}
-.track{display:none}
-.track.active{display:block}
 .code-wrap{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin:.6rem 0}
 .code-wrap code{background:#0f172a;color:#e2e8f0;padding:.7rem 1rem;font-family:'SF Mono','Fira Code',monospace;font-size:.88rem;flex:1;display:block;white-space:pre-wrap;word-break:break-all;line-height:1.5}
 .copy-btn{background:#334155;color:#94a3b8;border:none;padding:0 1rem;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;transition:background .15s}
 .copy-btn:hover{background:#4a9eff;color:white}
 .copy-btn.copied{background:#22c55e;color:white}
-.prompt-block{background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;margin:.6rem 0}
-.prompt-label{font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
-.prompt-text{font-style:italic;color:#475569;line-height:1.5;margin-bottom:.5rem;font-size:.92rem}
-.prompt-block .copy-btn{background:#f1f5f9;color:#4a9eff;border:1px solid #e2e8f0;border-radius:6px;padding:.3rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600}
-.prompt-block .copy-btn.copied{background:#22c55e;color:white;border-color:#22c55e}
-.role-banner{background:#1e3a5f;color:white;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem}
-.role-banner h3{font-size:.88rem;font-weight:600;opacity:.7;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
-.role-banner .roles-inline{display:flex;gap:.75rem;flex-wrap:wrap}
-.role-pill{padding:.35rem .9rem;border-radius:999px;font-size:.85rem;font-weight:600}
-.rp-ba{background:#d8b4fe;color:#4c1d95}
-.rp-dev{background:#93c5fd;color:#1e3a8a}
-.rp-tester{background:#86efac;color:#14532d}
-.callout{background:#fef3c7;border-left:3px solid #f59e0b;padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.9rem;color:#78350f}
 .divider{border:none;border-top:1px solid #e2e8f0;margin:1.5rem 0}
 .info{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1rem;font-size:.9rem;color:#1e40af;margin:.75rem 0}
-.branch-card{background:white;border-radius:12px;padding:1.25rem 1.5rem;margin:.75rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);display:flex;align-items:flex-start;gap:1rem}
-.branch-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
-.branch-info h3{font-size:1rem;font-weight:600;margin-bottom:.25rem}
-.branch-info p{font-size:.88rem;color:#64748b}
-.arrow{text-align:center;font-size:1.25rem;color:#4a9eff;margin:.25rem 0}
-.time-badge{background:#f1f5f9;color:#64748b;font-size:.75rem;font-weight:600;padding:.2rem .6rem;border-radius:999px;white-space:nowrap;margin-left:auto}
+.section{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.section h2{font-size:1rem;font-weight:700;color:#1e3a5f;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #f1f5f9}
+.section p{font-size:.9rem;color:#475569;margin:.4rem 0}
+.section ul{margin:.4rem 0 .4rem 1.2rem}
+.section li{font-size:.9rem;color:#475569;margin:.25rem 0}
+.section a{color:#4a9eff;text-decoration:none}
+.section a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.4rem 0}
+th{background:#f8fafc;text-align:left;padding:.55rem .7rem;font-weight:600;color:#475569;font-size:.82rem;border-bottom:1px solid #e2e8f0}
+td{padding:.55rem .7rem;border-bottom:1px solid #f1f5f9;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td code{background:#f1f5f9;padding:.1rem .35rem;border-radius:4px;font-size:.82rem}
+.track-card{background:white;border-radius:10px;padding:1rem 1.25rem;margin:.6rem 0;box-shadow:0 2px 6px rgba(0,0,0,.05);display:flex;align-items:flex-start;gap:.85rem}
+.track-card .ico{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
+.track-card h3{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+.track-card p{font-size:.86rem;color:#64748b}
+.track-card a{color:#4a9eff;font-weight:600}
 </style>
 </head>
 <body>
@@ -53,77 +45,71 @@ a{color:#4a9eff}
 </div>
 <div class="ws-main">
 
-  <div class="info">This repository is a 2-hour workshop on AI-assisted, spec-driven development using GSD + Claude Code / Codex. You'll move through 4 branches, each one showing a GSD checkpoint.</div>
+  <div class="info">This repository is a 2-hour workshop on <strong>AI-assisted, spec-driven development</strong> using the <strong>GSD</strong> framework with <strong>Claude Code</strong> (or <strong>Codex</strong> if you prefer the non-technical track). You'll start from the <code>setup</code> branch and build the same shape of app live, together, in 2 hours. The finished v1 reference lives on <code>main</code> so you can peek any time without leaving your seat.</div>
 
-  <h2 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.5rem 0 .75rem">Branch Map</h2>
-
-  <div class="branch-card">
-    <div class="branch-icon">🏁</div>
-    <div class="branch-info">
-      <h3>00-empty — Start here</h3>
-      <p>Bare repo. Run <code>/gsd new-project</code> and answer the questions as a group. Your prompt is your spec.</p>
-    </div>
-    <span class="time-badge">8 min</span>
-  </div>
-  <div class="arrow">↓</div>
-  <div class="branch-card">
-    <div class="branch-icon">📋</div>
-    <div class="branch-info">
-      <h3>01-planning — GSD project output</h3>
-      <p>PROJECT.md, ROADMAP.md, REQUIREMENTS.md, research/ (SUMMARY, PITFALLS, ARCHITECTURE, STACK, FEATURES). Then run <code>/gsd discuss-phase 1</code>.</p>
-    </div>
-    <span class="time-badge">17 min</span>
-  </div>
-  <div class="arrow">↓</div>
-  <div class="branch-card">
-    <div class="branch-icon">💬</div>
-    <div class="branch-info">
-      <h3>02-discussion — Phase discussion output</h3>
-      <p>CONTEXT.md, DISCUSSION-LOG.md, RESEARCH.md for phase 1. What you decided vs. what the agent decided.</p>
-    </div>
-    <span class="time-badge">15 min</span>
-  </div>
-  <div class="arrow">↓</div>
-  <div class="branch-card">
-    <div class="branch-icon">🚀</div>
-    <div class="branch-info">
-      <h3>03-milestone — Running app + tests + ship</h3>
-      <p>Phase 1 executed: Next.js app, Vitest tests, Playwright E2E, VERIFICATION.md, UAT, ship + new milestone.</p>
-    </div>
-    <span class="time-badge">30 min</span>
+  <div class="section">
+    <h2>Repo map</h2>
+    <table>
+      <tr><th>Branch</th><th>What's on it</th><th>When to look at it</th></tr>
+      <tr><td><code>setup</code></td><td>Starter scaffold + this guide (<code>setup.md</code>, <code>setup-codex.md</code>, <code>workshop.md</code>, agenda files)</td><td>You spend the whole workshop here.</td></tr>
+      <tr><td><code>main</code></td><td>Finished v1 networking app — full feature set, tests passing, GH Pages deploy green</td><td>Reference / sanity check. After the workshop, fork it and extend.</td></tr>
+    </table>
+    <p>That's it. Two branches. Everything else is built <strong>live</strong> during the session with GSD.</p>
   </div>
 
-  <hr class="divider">
-  <h2 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.5rem 0 .75rem">Switch between branches</h2>
-
-  <div class="track-tabs" style="max-width:400px">
-    <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
-    <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
+  <div class="section">
+    <h2>Files on this branch</h2>
+    <ul>
+      <li><a href="workshop.html">workshop.html</a> / <a href="workshop.md">workshop.md</a> — step-by-step guide for the 2-hour live build</li>
+      <li><a href="setup.html">setup.html</a> / <a href="setup.md">setup.md</a> — pre-workshop install guide for the <strong>Claude Code</strong> track</li>
+      <li><a href="setup-codex.html">setup-codex.html</a> / <a href="setup-codex.md">setup-codex.md</a> — same install guide for the <strong>Codex</strong> track</li>
+      <li><a href="agenda-participant.html">agenda-participant.html</a> / <a href="agenda-participant.md">agenda-participant.md</a> — participant view of the 2-hour agenda</li>
+      <li><a href="agenda-facilitator.html">agenda-facilitator.html</a> / <a href="agenda-facilitator.md">agenda-facilitator.md</a> — facilitator timing, talking points, watch-fors (internal)</li>
+      <li><a href="overview.html">overview.html</a> / <a href="overview.md">overview.md</a> — this file</li>
+    </ul>
   </div>
-  <div class="step" style="margin-top:0">
-    <div class="track technical active">
-      <div class="code-wrap"><code>git checkout 00-empty</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-      <div class="code-wrap"><code>git checkout 01-planning</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-      <div class="code-wrap"><code>git checkout 02-discussion</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-      <div class="code-wrap"><code>git checkout 03-milestone</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    </div>
-    <div class="track nontechnical">
-      <div class="prompt-block" onclick="copyPrompt(this)">
-        <div class="prompt-label">Paste into Claude or Codex</div>
-        <div class="prompt-text">Switch to the [branch name] branch — for example: "Switch to the 01-planning branch and open workshop.html to see the planning output."</div>
-        <button class="copy-btn">Copy prompt</button>
+
+  <div class="section">
+    <h2>The 2-hour arc, at a glance</h2>
+    <table>
+      <tr><th>Time</th><th>What we do</th><th>GSD command</th></tr>
+      <tr><td>0:00 – 0:20</td><td>Welcome, intros, "your prompt is your spec" framing</td><td>—</td></tr>
+      <tr><td>0:20 – 0:30</td><td>Kick off a fresh project (live, as a group)</td><td><code>/gsd-new-project</code></td></tr>
+      <tr><td>0:30 – 0:50</td><td>Tour the planning output GSD just produced (PROJECT, ROADMAP, REQUIREMENTS, research)</td><td>—</td></tr>
+      <tr><td>0:50 – 1:05</td><td>Discuss the first phase — surface what the AI is about to decide on its own</td><td><code>/gsd-discuss-phase 1</code></td></tr>
+      <tr><td>1:05 – 1:35</td><td>Execute the phase live: planning, code, tests, verification</td><td><code>/gsd-execute-phase 1</code></td></tr>
+      <tr><td>1:35 – 1:45</td><td>Ship + open the next milestone</td><td><code>/gsd-ship</code>, <code>/gsd-new-milestone</code></td></tr>
+      <tr><td>1:45 – 2:00</td><td>Q&amp;A and what to try after today</td><td>—</td></tr>
+    </table>
+    <p>Each row maps to a numbered step in <a href="workshop.html">workshop.html</a>, which is where you'll spend the live time.</p>
+  </div>
+
+  <div class="section">
+    <h2>Compare with the reference</h2>
+    <p>When you want to see "what does the finished version of this artifact look like?", peek at <code>main</code> without leaving <code>setup</code>:</p>
+    <div class="code-wrap"><code>git show main:.planning/PROJECT.md</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-wrap"><code>git show main:.planning/phases/01-foundation-static-export-spine/01-PLAN.md</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-wrap"><code>git diff setup main -- README.md</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <p>The facilitator will point at these moments during the live walk-through.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pick your AI track</h2>
+    <div class="track-card">
+      <div class="ico">⚙️</div>
+      <div>
+        <h3>Claude Code <span style="font-size:.7rem;color:#22c55e;font-weight:700;margin-left:.4rem">Recommended</span></h3>
+        <p>Terminal-based, runs GSD slash-commands directly. <a href="setup.html">setup.html</a></p>
       </div>
     </div>
-  </div>
-
-  <hr class="divider">
-  <h2 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.5rem 0 .75rem">All files in this repo</h2>
-  <div style="font-size:.88rem;color:#64748b">
-    <p>• <a href="workshop.html">workshop.html</a> — this branch's step-by-step guide (each branch has one)</p>
-    <p>• <a href="setup.html">setup.html</a> — install guide + WhatsApp checklist (do this before workshop day)</p>
-    <p>• <a href="overview.html">overview.html</a> — this file</p>
-    <p>• <a href="agenda-facilitator.html">agenda-facilitator.html</a> — facilitator timing + talking points (not for participants)</p>
-    <p>• <a href="agenda-participant.html">agenda-participant.html</a> — participant agenda overview</p>
+    <div class="track-card">
+      <div class="ico">💬</div>
+      <div>
+        <h3>Codex</h3>
+        <p>VS Code sidebar, prompt-based, friendlier for non-developers. <a href="setup-codex.html">setup-codex.html</a></p>
+      </div>
+    </div>
+    <p style="margin-top:.6rem">Both tracks finish at the same place. The AI tool is the only thing that differs.</p>
   </div>
 
 </div>
@@ -135,22 +121,6 @@ function copyCode(btn) {
     btn.classList.add('copied')
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000)
   })
-}
-function copyPrompt(promptBlock) {
-  const text = promptBlock.querySelector('.prompt-text').textContent.trim()
-  const btn = promptBlock.querySelector('.copy-btn')
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = '✓ Copied'
-    btn.classList.add('copied')
-    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('copied') }, 2000)
-  })
-}
-function switchTab(btn, track) {
-  const step = btn.closest('.step')
-  step.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
-  step.querySelectorAll('.track').forEach(c => c.classList.remove('active'))
-  btn.classList.add('active')
-  step.querySelector('.track.' + track).classList.add('active')
 }
 </script>
 </body>

@@ -2,97 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Workshop — Step 00: Start Here</title>
+<title>Workshop — Build a real app with GSD in 2 hours</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#1a1a2e;line-height:1.6}
 a{color:#4a9eff}
-/* Header */
 .ws-header{background:#1e3a5f;color:white;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .ws-header h1{font-size:1.1rem;font-weight:600}
 .ws-header p{font-size:0.8rem;opacity:.7;margin-top:0.2rem}
 .branch-badge{background:#4a9eff;color:white;padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:700;white-space:nowrap}
-/* Progress */
-.ws-progress{height:5px;background:#e2e8f0}
-.ws-progress-fill{height:100%;background:#4a9eff;transition:width .4s}
-/* Main */
 .ws-main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
-/* Step card */
 .step{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
 .step-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
 .step-num{background:#1e3a5f;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
 .step-title{font-size:1.05rem;font-weight:600}
-/* What this does */
 .what{background:#f0f7ff;border-left:3px solid #4a9eff;padding:.7rem 1rem;border-radius:0 8px 8px 0;margin-bottom:1rem;font-size:.92rem;color:#334155}
-/* Track tabs */
-.track-tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem}
+.track-tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem;max-width:380px}
 .tab-btn{flex:1;padding:.55rem 1rem;border:none;cursor:pointer;font-size:.88rem;font-weight:500;background:white;color:#64748b;transition:all .15s}
 .tab-btn.active{background:#1e3a5f;color:white}
 .track{display:none}
 .track.active{display:block}
-/* Code block */
 .code-wrap{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin:.6rem 0}
 .code-wrap code{background:#0f172a;color:#e2e8f0;padding:.7rem 1rem;font-family:'SF Mono','Fira Code',monospace;font-size:.88rem;flex:1;display:block;white-space:pre-wrap;word-break:break-all;line-height:1.5}
 .copy-btn{background:#334155;color:#94a3b8;border:none;padding:0 1rem;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;transition:background .15s}
 .copy-btn:hover{background:#4a9eff;color:white}
 .copy-btn.copied{background:#22c55e;color:white}
-/* Prompt block */
 .prompt-block{background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;margin:.6rem 0}
 .prompt-label{font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
 .prompt-text{font-style:italic;color:#475569;line-height:1.5;margin-bottom:.5rem;font-size:.92rem}
 .prompt-block .copy-btn{background:#f1f5f9;color:#4a9eff;border:1px solid #e2e8f0;border-radius:6px;padding:.3rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600}
 .prompt-block .copy-btn.copied{background:#22c55e;color:white;border-color:#22c55e}
-/* Screenshot */
-.screenshot{margin:1rem 0}
-.screenshot img{width:100%;border-radius:8px;border:1px solid #e2e8f0;display:block}
-.screenshot-caption{font-size:.78rem;color:#94a3b8;text-align:center;margin-top:.4rem}
-.screenshot-placeholder{background:#f0f7ff;border:2px dashed #4a9eff;border-radius:8px;padding:2.5rem 1rem;text-align:center;color:#4a9eff;font-size:.88rem}
-/* Expected output */
-details{margin:.75rem 0}
-summary{cursor:pointer;color:#4a9eff;font-size:.88rem;font-weight:500;user-select:none}
-.expected{background:#0f172a;color:#94a3b8;padding:1rem;border-radius:0 0 8px 8px;font-family:monospace;font-size:.82rem;white-space:pre-wrap;margin-top:4px;line-height:1.5}
-/* Checkpoint */
 .checkpoint{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:.75rem 1rem;margin-top:1rem;display:flex;align-items:center;gap:.75rem;font-size:.92rem;color:#166534}
 .checkpoint input[type=checkbox]{width:18px;height:18px;accent-color:#22c55e;cursor:pointer;flex-shrink:0}
-/* Timer */
-.timer{background:linear-gradient(135deg,#1e3a5f,#0f2644);color:white;border-radius:12px;padding:1.5rem;text-align:center;margin:1.25rem 0}
-.timer-title{font-size:.85rem;opacity:.75;margin-bottom:.4rem}
-.timer-display{font-size:3.5rem;font-weight:700;font-family:'SF Mono','Fira Code',monospace;letter-spacing:.08em;transition:color .5s}
-.timer-display.warn{color:#fbbf24}
-.timer-display.danger{color:#ef4444}
-.timer-note{font-size:.78rem;opacity:.6;margin-top:.4rem}
-.timer-controls{display:flex;gap:.75rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
-.timer-controls button{padding:.45rem 1.2rem;border-radius:6px;border:none;cursor:pointer;font-weight:600;font-size:.88rem;transition:opacity .15s}
-.timer-controls button:hover{opacity:.85}
-.t-start{background:#22c55e;color:white}
-.t-pause{background:#fbbf24;color:#1a1a2e}
-.t-reset{background:rgba(255,255,255,.15);color:white}
-/* Role cards */
-.role-header{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:.75rem 1rem;margin:1rem 0;display:flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:600;color:#475569}
-.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin:.75rem 0}
-.role{border-radius:8px;padding:.9rem;font-size:.88rem}
-.role-ba{background:#fdf4ff;border:1px solid #e9d5ff}
-.role-dev{background:#eff6ff;border:1px solid #bfdbfe}
-.role-tester{background:#f0fdf4;border:1px solid #bbf7d0}
-.role strong{display:block;margin-bottom:.3rem;font-size:.9rem}
-.role p{color:#64748b;font-style:italic;line-height:1.4}
-/* Question card */
-.question{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:1rem;margin:.75rem 0}
-.question .q-label{font-size:.78rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
-.question .q-text{font-weight:600;color:#1a1a2e;margin-bottom:.75rem;font-size:.95rem}
-/* File tour item */
-.file-item{border:1px solid #e2e8f0;border-radius:8px;margin:.6rem 0;overflow:hidden}
-.file-item-header{background:#f8fafc;padding:.6rem 1rem;font-size:.88rem;font-weight:600;color:#475569;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:.5rem}
-.file-item-body{padding:.75rem 1rem;font-size:.88rem;color:#475569}
-.file-item-body ul{padding-left:1rem;margin-top:.3rem}
-.file-item-body li{margin:.2rem 0}
-/* Nav button */
-.nav-next{display:block;width:100%;background:#1e3a5f;color:white;border:none;border-radius:10px;padding:1rem 2rem;font-size:1rem;font-weight:600;cursor:pointer;margin-top:2rem;text-align:center;text-decoration:none;transition:background .15s}
-.nav-next:hover{background:#2d5a8e}
-/* Concept hook */
-.concept{background:linear-gradient(135deg,#1e3a5f10,#4a9eff10);border:1px solid #4a9eff40;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.95rem;color:#1e3a5f}
-.concept strong{color:#4a9eff}
-/* Role card at top */
+.timer{background:linear-gradient(135deg,#1e3a5f,#0f2644);color:white;border-radius:10px;padding:.85rem 1.1rem;text-align:center;margin:1rem 0;font-size:.88rem}
+.timer strong{font-size:1rem}
 .role-banner{background:#1e3a5f;color:white;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem}
 .role-banner h3{font-size:.88rem;font-weight:600;opacity:.7;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
 .role-banner .roles-inline{display:flex;gap:.75rem;flex-wrap:wrap}
@@ -100,188 +43,248 @@ summary{cursor:pointer;color:#4a9eff;font-size:.88rem;font-weight:500;user-selec
 .rp-ba{background:#d8b4fe;color:#4c1d95}
 .rp-dev{background:#93c5fd;color:#1e3a8a}
 .rp-tester{background:#86efac;color:#14532d}
-/* Callout */
+.concept{background:linear-gradient(135deg,#1e3a5f10,#4a9eff10);border:1px solid #4a9eff40;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.95rem;color:#1e3a5f}
+.concept strong{color:#4a9eff}
 .callout{background:#fef3c7;border-left:3px solid #f59e0b;padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.9rem;color:#78350f}
-/* HR */
-.divider{border:none;border-top:1px solid #e2e8f0;margin:1.5rem 0}
-/* Info box */
 .info{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1rem;font-size:.9rem;color:#1e40af;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.4rem 0}
+th{background:#f8fafc;text-align:left;padding:.55rem .7rem;font-weight:600;color:#475569;font-size:.82rem;border-bottom:1px solid #e2e8f0}
+td{padding:.55rem .7rem;border-bottom:1px solid #f1f5f9;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td code{background:#f1f5f9;padding:.1rem .35rem;border-radius:4px;font-size:.82rem}
+.ready-box{background:#dcfce7;border:1px solid #86efac;border-radius:10px;padding:1.25rem;margin-top:1.5rem;text-align:center}
+.ready-box h3{font-size:1rem;font-weight:700;color:#14532d;margin-bottom:.4rem}
+.ready-box p{font-size:.9rem;color:#166534}
 </style>
 </head>
 <body>
 
 <div class="ws-header">
-  <div><h1>AI-Assisted Development with GSD</h1><p>Workshop guide · 2 hours · Groups of 5–7</p></div>
-  <span class="branch-badge">00-empty</span>
+  <div><h1>Build a real app with GSD in 2 hours</h1><p>Workshop guide · 2 hours · Groups of 5–7</p></div>
+  <span class="branch-badge">setup</span>
 </div>
-<div class="ws-progress"><div class="ws-progress-fill" style="width:5%"></div></div>
 
 <div class="ws-main">
 
   <div class="role-banner">
-    <h3>Your pre-assigned role for this session</h3>
+    <h3>Your role today</h3>
     <div class="roles-inline">
-      <span class="role-pill rp-ba">🎯 BA / PO</span>
-      <span class="role-pill rp-dev">💻 Developer</span>
-      <span class="role-pill rp-tester">🧪 Tester / QA</span>
+      <span class="role-pill rp-ba">🎯 BA / PO — Product perspective</span>
+      <span class="role-pill rp-dev">💻 Developer — Technical feasibility</span>
+      <span class="role-pill rp-tester">🧪 Tester / QA — Quality perspective</span>
     </div>
-    <p style="font-size:.8rem;opacity:.6;margin-top:.5rem">Your role was assigned from your registration — ask your facilitator if unsure.</p>
+    <p style="font-size:.8rem;opacity:.6;margin-top:.5rem">Pre-assigned from your registration. Each group has all 3 roles — everyone contributes to every step.</p>
   </div>
 
   <div class="concept">
-    <strong>Core idea:</strong> Your prompt IS your spec. What you tell the AI right now determines everything it builds downstream — the roadmap, the requirements, the architecture. Take your time here.
+    <strong>Core idea:</strong> Your prompt IS your spec. What you tell the AI right now determines everything it builds downstream — the roadmap, the requirements, the architecture, the tests. Take your time at each step.
+  </div>
+
+  <div class="info">
+    You'll work through <strong>5 steps</strong> in 2 hours. Each step has a <strong>Technical</strong> path (Claude Code in your terminal) and a <strong>Non-Technical</strong> path (Codex sidebar or claude.ai in a browser tab). We stay on the <code>setup</code> branch the whole time — what we build, we build live. Use <code>main</code> as the reference for "what's this supposed to look like?".
   </div>
 
   <!-- Step 1 -->
   <div class="step">
-    <div class="step-header"><div class="step-num">1</div><div class="step-title">Preflight — confirm your setup is ready</div></div>
-    <div class="what">📖 Before you can run any AI tools, your machine needs Node.js, Git, VS Code, and either Claude Code or Codex. If you're not set up, open <a href="setup.html">setup.html</a> now.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s1-node"><label>Node.js installed — <code>node -v</code> shows a version number</label></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s1-git"><label>Git installed — <code>git --version</code> works</label></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s1-vscode"><label>VS Code open with this project folder</label></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s1-ai"><label>Claude Code or Codex is ready (see Step 2)</label></div>
+    <div class="step-header"><div class="step-num">1</div><div class="step-title">Confirm your setup</div></div>
+    <div class="what">📖 Before anything else, prove your machine is ready. If any check below fails, ping the facilitator now — Step 2 needs all of them.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s1-branch"><label>Repo open in VS Code on the <code>setup</code> branch — <code>git branch --show-current</code> confirms</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s1-node"><label>Node 20+ — <code>node -v</code></label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s1-git"><label>Git — <code>git --version</code></label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s1-ai"><label>AI assistant works: <code>claude --version</code> OR Codex sidebar replies OR <a href="https://claude.ai" target="_blank">claude.ai</a> is open</label></div>
   </div>
 
   <!-- Step 2 -->
   <div class="step">
-    <div class="step-header"><div class="step-num">2</div><div class="step-title">Open your AI assistant</div></div>
-    <div class="what">📖 You can use either Claude Code (terminal-based, runs GSD commands directly) or Codex/Claude in a browser tab (great for non-technical roles — just paste prompts). Both tracks are shown for every step.</div>
-
+    <div class="step-header"><div class="step-num">2</div><div class="step-title">Open your AI assistant in the right place</div></div>
     <div class="track-tabs">
-      <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical (Claude Code)</button>
-      <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical (Claude / Codex)</button>
+      <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
+      <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
     </div>
     <div class="track technical active">
-      <p style="font-size:.88rem;color:#475569;margin-bottom:.5rem">Open your terminal inside VS Code (Ctrl+` or Cmd+`) and run:</p>
+      <p style="font-size:.9rem;color:#475569">Open the integrated terminal in VS Code (<code>Ctrl+`</code> or <code>Cmd+`</code>) and run:</p>
       <div class="code-wrap"><code>claude</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-      <p style="font-size:.82rem;color:#94a3b8">Expected: Claude Code launches and shows a prompt</p>
+      <p style="font-size:.9rem;color:#475569">You should see the Claude Code prompt. Leave that pane open — every GSD command in this guide goes here.</p>
     </div>
     <div class="track nontechnical">
-      <p style="font-size:.88rem;color:#475569;margin-bottom:.5rem">Open <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab, or open the Codex sidebar in VS Code (Extensions → Codex). You'll paste prompts directly into the chat.</p>
+      <p style="font-size:.9rem;color:#475569"><strong>Codex:</strong> open the Codex sidebar from VS Code's left rail. Click "New chat" if it's blank.</p>
+      <p style="font-size:.9rem;color:#475569"><strong>claude.ai:</strong> open <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab next to your VS Code window.</p>
+      <p style="font-size:.9rem;color:#475569">For the non-technical path, every "run this command" instruction below gives you a <strong>paste-into-chat</strong> version. Use it instead of the slash-command.</p>
     </div>
-
-    <div class="screenshot">
-      <div class="screenshot-placeholder">📸 Screenshot: Claude Code terminal open / Codex sidebar visible in VS Code</div>
-    </div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s2-ai-open"><label>AI assistant is open and ready to accept input</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s2-ai"><label>AI assistant is open and accepting input</label></div>
   </div>
 
   <!-- Step 3 -->
   <div class="step">
-    <div class="step-header"><div class="step-num">3</div><div class="step-title">Start a new project</div></div>
-    <div class="what">📖 <strong>What this does:</strong> Launches the GSD project wizard. It asks you a series of questions about what you're building — your answers become PROJECT.md, ROADMAP.md, REQUIREMENTS.md, and 4 research files. The AI does the research; you provide the intent.</div>
+    <div class="step-header"><div class="step-num">3</div><div class="step-title">Kick off a fresh project together</div></div>
+    <div class="what">📖 Launches the GSD project wizard. It asks 6–8 questions, your answers become <code>PROJECT.md</code>, <code>ROADMAP.md</code>, <code>REQUIREMENTS.md</code>, plus four research files. The AI does the research; you provide the intent.</div>
+    <div class="track-tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
+      <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
+    </div>
+    <div class="track technical active">
+      <div class="code-wrap"><code>/gsd-new-project</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <div class="track nontechnical">
+      <div class="prompt-block" onclick="copyPrompt(this)">
+        <div class="prompt-label">Paste into Codex / claude.ai</div>
+        <div class="prompt-text">Start a new GSD project with me for a "personal networking app" — a local-first mini-CRM for working professionals to track people they meet at events. Ask me setup questions one at a time — project name, the problem it solves, who it's for, core features, what's out of scope, technology preferences, constraints, what success looks like. After I answer all questions, write the planning files: PROJECT.md, ROADMAP.md, and REQUIREMENTS.md under .planning/.</div>
+        <button class="copy-btn">Copy prompt</button>
+      </div>
+    </div>
+
+    <p style="font-size:.9rem;color:#475569;margin-top:.75rem"><strong>What to expect:</strong> 6–8 questions, one at a time:</p>
+    <ol style="font-size:.88rem;color:#475569;margin:.4rem 0 .6rem 1.4rem">
+      <li>What is your project name?</li>
+      <li>What problem does it solve? Who is it for?</li>
+      <li>What are the core features for v1?</li>
+      <li>What is explicitly out of scope?</li>
+      <li>What technology preferences do you have?</li>
+      <li>What are the key constraints?</li>
+      <li>What does success look like?</li>
+      <li>Any other context?</li>
+    </ol>
+
+    <div class="timer">⏱ <strong>Timer: 8 minutes</strong> — one person types, everyone contributes.</div>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:.75rem">Answer together — what each role brings</p>
+    <table>
+      <tr><th>Role</th><th>What you bring</th></tr>
+      <tr><td><strong>BA / PO</strong></td><td>Who is the user? What pain point? What does success look like?</td></tr>
+      <tr><td><strong>Developer</strong></td><td>Is the spec clear enough to build? What's technically ambiguous?</td></tr>
+      <tr><td><strong>Tester / QA</strong></td><td>How would we verify this? What's measurable? What edge cases?</td></tr>
+    </table>
+
+    <div class="callout">💡 The AI will accept any answer but build exactly what you describe. Vague input = vague output. Specific, opinionated answers produce better plans.</div>
+
+    <p style="font-size:.9rem;color:#475569;margin-top:.75rem"><strong>Peek at the reference</strong> when GSD finishes — compare your output with the v1 reference on <code>main</code>:</p>
+    <div class="code-wrap"><code>git show main:.planning/PROJECT.md</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <p style="font-size:.85rem;color:#64748b">(Press <code>q</code> to quit the pager.)</p>
+
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s3-files"><label><code>.planning/PROJECT.md</code>, <code>ROADMAP.md</code>, <code>REQUIREMENTS.md</code>, and <code>research/</code> exist on disk</label></div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step">
+    <div class="step-header"><div class="step-num">4</div><div class="step-title">Discuss phase 1 (15 min)</div></div>
+    <div class="what">📖 Before any code, GSD pulls out the <em>decisions</em> the agent would otherwise make on its own — the gray areas in your spec. You answer them, the agent locks them in <code>CONTEXT.md</code>, and the plan that follows respects every answer. This is the single biggest place where humans stay in the loop.</div>
 
     <div class="track-tabs">
       <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
       <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
     </div>
     <div class="track technical active">
-      <div class="code-wrap"><code>/gsd new-project</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-      <p style="font-size:.82rem;color:#94a3b8">Type this in your Claude Code terminal and press Enter</p>
+      <div class="code-wrap"><code>/gsd-discuss-phase 1</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     </div>
     <div class="track nontechnical">
       <div class="prompt-block" onclick="copyPrompt(this)">
-        <div class="prompt-label">Paste into Claude or Codex</div>
-        <div class="prompt-text">Start a new project with me. Ask me setup questions one at a time — project name, the problem it solves, who it's for, core features, what's out of scope, technology preferences, constraints, and what success looks like. After I answer all questions, generate the planning files: PROJECT.md, ROADMAP.md, and REQUIREMENTS.md.</div>
+        <div class="prompt-label">Paste into Codex / claude.ai</div>
+        <div class="prompt-text">Run /gsd-discuss-phase 1 on the project we just created. Surface the gray areas in phase 1 — the decisions the agent would otherwise make by itself. Ask me about each one in turn, then write .planning/phases/01-*/01-CONTEXT.md and 01-DISCUSSION-LOG.md capturing every answer.</div>
         <button class="copy-btn">Copy prompt</button>
       </div>
     </div>
 
-    <div class="screenshot">
-      <div class="screenshot-placeholder">📸 Screenshot: Claude Code showing the first GSD question appearing in the terminal</div>
-    </div>
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:.75rem">Watch for, per role</p>
+    <table>
+      <tr><th>Role</th><th>What to look for</th></tr>
+      <tr><td><strong>BA / PO</strong></td><td>Anything the AI inferred from your spec — is it what you meant?</td></tr>
+      <tr><td><strong>Developer</strong></td><td>Architectural choices being made implicitly. Push to surface them.</td></tr>
+      <tr><td><strong>Tester / QA</strong></td><td>Anything left to "agent's discretion" — that's a test case you don't have yet.</td></tr>
+    </table>
 
-    <details><summary>▶ What to expect</summary>
-<div class="expected">GSD will ask 6-8 questions, one at a time:
-  1. What is your project name?
-  2. What problem does it solve? Who is it for?
-  3. What are the core features for v1?
-  4. What is explicitly out of scope?
-  5. What technology preferences do you have?
-  6. What are the key constraints?
-  7. What does success look like?
-  8. Any other context?
+    <div class="concept"><strong>Concept hook:</strong> "<code>CONTEXT.md</code> is your Gherkin before the Gherkin. Everything left to the agent's discretion is a test case you don't yet have."</div>
 
-After all answers, it runs research agents and creates .planning/</div>
-    </details>
+    <p style="font-size:.9rem;color:#475569;margin-top:.75rem"><strong>Peek at the reference:</strong></p>
+    <div class="code-wrap"><code>git show main:.planning/phases/01-foundation-static-export-spine/01-CONTEXT.md</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s4-context"><label><code>01-CONTEXT.md</code> written with the group's decisions in the "Decisions" section</label></div>
   </div>
 
-  <!-- Step 4: Group discussion + timer -->
+  <!-- Step 5 -->
   <div class="step">
-    <div class="step-header"><div class="step-num">4</div><div class="step-title">Answer the questions together — as a group</div></div>
-    <div class="what">📖 <strong>Do not answer alone.</strong> Each GSD question is a product decision. Use your role to contribute your perspective. One person types or pastes the agreed answer. The timer covers all questions — 8 minutes total.</div>
-
-    <div class="timer">
-      <div class="timer-title">💬 Group Discussion — answer all GSD questions together</div>
-      <div class="timer-display" id="td-gsd-q">08:00</div>
-      <div class="timer-controls">
-        <button class="t-start" onclick="startTimer('gsd-q',480)">▶ Start</button>
-        <button class="t-pause" onclick="pauseTimer('gsd-q')">⏸ Pause</button>
-        <button class="t-reset" onclick="resetTimer('gsd-q',480)">↺ Reset</button>
-      </div>
-      <div class="timer-note">8 minutes covers all questions · one person types · everyone contributes</div>
-    </div>
-
-    <div class="question">
-      <div class="q-label">GSD Question 1 of 8</div>
-      <div class="q-text">"What is your project name and what problem does it solve? Who is it for?"</div>
-      <div class="roles">
-        <div class="role role-ba"><strong>🎯 BA / PO</strong><p>Who is the user? What pain point are we solving? What does success look like for them?</p></div>
-        <div class="role role-dev"><strong>💻 Developer</strong><p>Is this problem clear enough to build? What's technically ambiguous?</p></div>
-        <div class="role role-tester"><strong>🧪 Tester / QA</strong><p>How would we verify this solves the stated problem? What's measurable?</p></div>
-      </div>
-    </div>
-
-    <div class="question">
-      <div class="q-label">GSD Question 2 of 8</div>
-      <div class="q-text">"What are the core features for version 1?"</div>
-      <div class="roles">
-        <div class="role role-ba"><strong>🎯 BA / PO</strong><p>What delivers the most user value first? What's a nice-to-have vs. must-have?</p></div>
-        <div class="role role-dev"><strong>💻 Developer</strong><p>Which features are technically risky or time-consuming? What's the simplest slice?</p></div>
-        <div class="role role-tester"><strong>🧪 Tester / QA</strong><p>Which features are hardest to test or most likely to break? What needs acceptance criteria?</p></div>
-      </div>
-    </div>
-
-    <div class="question">
-      <div class="q-label">GSD Question 3 of 8</div>
-      <div class="q-text">"What is explicitly out of scope for v1?"</div>
-      <div class="roles">
-        <div class="role role-ba"><strong>🎯 BA / PO</strong><p>What are we deliberately NOT building? What business risk does this create?</p></div>
-        <div class="role role-dev"><strong>💻 Developer</strong><p>What technical shortcuts are acceptable because of this scope?</p></div>
-        <div class="role role-tester"><strong>🧪 Tester / QA</strong><p>What edge cases do we explicitly not need to test? What's the risk of that?</p></div>
-      </div>
-    </div>
-
-    <div class="callout">⚡ Tip: The AI will accept any answer but build exactly what you describe. Vague input = vague output. Specific, opinionated answers produce better plans.</div>
-  </div>
-
-  <!-- Step 5: Switch branches -->
-  <div class="step">
-    <div class="step-header"><div class="step-num">5</div><div class="step-title">Switch to the output branch</div></div>
-    <div class="what">📖 <strong>What this does:</strong> Instead of waiting for GSD to finish (it can take 5–10 minutes), we've pre-built the output on the <code>01-planning</code> branch. Switch now to see what a completed run looks like — then explore and discuss.</div>
+    <div class="step-header"><div class="step-num">5</div><div class="step-title">Execute the phase, run the app, ship (30 min)</div></div>
+    <div class="what">📖 GSD turns the locked context into a detailed <code>PLAN.md</code>, then executes it — writes code, runs unit tests, runs Playwright E2E, produces <code>VERIFICATION.md</code> flagging anything a human still needs to check. Then you ship.</div>
 
     <div class="track-tabs">
       <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
       <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
     </div>
     <div class="track technical active">
-      <div class="code-wrap"><code>git checkout 01-planning</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <div class="code-wrap"><code>/gsd-execute-phase 1</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     </div>
     <div class="track nontechnical">
       <div class="prompt-block" onclick="copyPrompt(this)">
-        <div class="prompt-label">Paste into Claude or Codex</div>
-        <div class="prompt-text">Switch to the 01-planning branch so we can see the output that GSD would have produced. Then open the workshop.html file on that branch to continue.</div>
+        <div class="prompt-label">Paste into Codex / claude.ai</div>
+        <div class="prompt-text">Now run /gsd-execute-phase 1. Write .planning/phases/01-*/01-PLAN.md first, then implement everything in the plan: Next.js scaffolding, Dexie schema, basic shell, dark mode, dynamic [id] routes proven, first GH Pages deploy stub. Run npm install, run the test suite, and write 01-SUMMARY.md + 01-VERIFICATION.md when done.</div>
         <button class="copy-btn">Copy prompt</button>
       </div>
     </div>
 
-    <div class="info">After switching branches, open <strong>workshop.html</strong> in your browser to continue — it will have the steps for exploring the planning output.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="00-s5-switched"><label>Switched to 01-planning branch and opened workshop.html</label></div>
+    <p style="font-size:.9rem;color:#475569;margin-top:.75rem">This will take a few minutes. While it runs, the facilitator is showing slides on what GSD is doing under the hood (planning → atomic plans → wave-based execution → verification).</p>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:1rem">Run the app</p>
+    <div class="code-wrap"><code>npm install</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-wrap"><code>npm run dev</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <p style="font-size:.9rem;color:#475569">Open <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>. The starter shell should render — sidebar, top bar, empty People list, dark-mode toggle.</p>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:1rem">Run the tests</p>
+    <div class="code-wrap"><code>npm test</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <p style="font-size:.9rem;color:#475569">Vitest runs. Green dots expected. If anything's red — that's a teaching moment. Show the failure to the facilitator.</p>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:1rem">UAT discussion (5 min, as a group)</p>
+    <p style="font-size:.9rem;color:#475569">Open <code>.planning/phases/01-*/01-VERIFICATION.md</code>. The agent has written down what it <em>couldn't</em> verify on its own — the bits that need a human.</p>
+    <table>
+      <tr><th>Role</th><th>What you're checking</th></tr>
+      <tr><td><strong>BA / PO</strong></td><td>Does this feel like the product you described?</td></tr>
+      <tr><td><strong>Developer</strong></td><td>Is the code shape something you'd build on?</td></tr>
+      <tr><td><strong>Tester / QA</strong></td><td>What's the agent admitting it can't test? That's your scope.</td></tr>
+    </table>
+
+    <div class="concept"><strong>Concept hook:</strong> "The AI wrote the code AND the tests. What does a human still own? <code>VERIFICATION.md</code> is where the AI admits what it couldn't check. That's your role."</div>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:1rem">Ship + open milestone 2</p>
+    <div class="track-tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'technical')">💻 Technical</button>
+      <button class="tab-btn" onclick="switchTab(this,'nontechnical')">💬 Non-Technical</button>
+    </div>
+    <div class="track technical active">
+      <div class="code-wrap"><code>/gsd-ship</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+      <div class="code-wrap"><code>/gsd-new-milestone</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    </div>
+    <div class="track nontechnical">
+      <div class="prompt-block" onclick="copyPrompt(this)">
+        <div class="prompt-label">Paste into Codex / claude.ai</div>
+        <div class="prompt-text">Ship the current milestone with /gsd-ship, then open milestone 2 with /gsd-new-milestone. The next milestone is integrations + CI/CD — we won't build it today, just open it as a teaser.</div>
+        <button class="copy-btn">Copy prompt</button>
+      </div>
+    </div>
+
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s5-app"><label>App runs locally on <code>http://localhost:3000</code></label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s5-tests"><label>Tests pass</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s5-verif"><label><code>01-VERIFICATION.md</code> read and discussed</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="ws-s5-ship"><label>Milestone 1 shipped, milestone 2 opened</label></div>
   </div>
 
-</div><!-- /ws-main -->
+  <div class="ready-box">
+    <h3>✅ You're done</h3>
+    <p>In 2 hours your group went from "blank repo" to "running, tested, shipped v1 scaffold" — with every decision surfaced and captured, not buried inside the agent.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-header"><div class="step-num">★</div><div class="step-title">Compare with main</div></div>
+    <p style="font-size:.9rem;color:#475569">Want to see how far the reference goes? Full People/Events CRUD, search, JSON export, all 4 phases shipped.</p>
+    <div class="code-wrap"><code>git diff setup main --stat</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+
+    <p style="font-size:.9rem;font-weight:600;color:#1e3a5f;margin-top:1rem">What to try after today</p>
+    <ul style="font-size:.9rem;color:#475569;margin:.4rem 0 .4rem 1.4rem">
+      <li>Fork the repo and run <code>/gsd-next</code> to keep going — phase 2 onwards is yours</li>
+      <li>Read <code>.planning/research/PITFALLS.md</code> on <code>main</code> for what tripped us up the first time</li>
+      <li>Try the same workflow on a project you actually want to build</li>
+    </ul>
+  </div>
+
+</div>
 <script>
-// ── Copy to clipboard ──────────────────────────────────────────────
 function copyCode(btn) {
   const text = btn.previousElementSibling.textContent.trim()
   navigator.clipboard.writeText(text).then(() => {
@@ -299,66 +302,13 @@ function copyPrompt(promptBlock) {
     setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('copied') }, 2000)
   })
 }
-
-// ── Track tabs (Technical / Non-Technical) ─────────────────────────
 function switchTab(btn, track) {
   const step = btn.closest('.step')
   step.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
   step.querySelectorAll('.track').forEach(c => c.classList.remove('active'))
   btn.classList.add('active')
-  step.querySelector('.track.' + track).classList.add('active')
+  step.querySelectorAll('.track.' + track).forEach(t => t.classList.add('active'))
 }
-
-// ── Countdown timer ────────────────────────────────────────────────
-const _timers = {}
-function _timerTick(id) {
-  if (!_timers[id] || !_timers[id].running) return
-  _timers[id].remaining--
-  _renderTimer(id)
-  if (_timers[id].remaining <= 0) {
-    _timers[id].running = false
-    _ping()
-    return
-  }
-  _timers[id].raf = setTimeout(() => _timerTick(id), 1000)
-}
-function _renderTimer(id) {
-  const el = document.getElementById('td-' + id)
-  if (!el) return
-  const r = _timers[id].remaining
-  const m = String(Math.floor(r / 60)).padStart(2, '0')
-  const s = String(r % 60).padStart(2, '0')
-  el.textContent = m + ':' + s
-  el.className = 'timer-display' + (r <= 60 ? ' danger' : r <= 180 ? ' warn' : '')
-}
-function startTimer(id, secs) {
-  if (!_timers[id]) _timers[id] = { remaining: secs, running: false }
-  if (_timers[id].running) return
-  _timers[id].running = true
-  _timerTick(id)
-}
-function pauseTimer(id) {
-  if (_timers[id]) { _timers[id].running = false; clearTimeout(_timers[id].raf) }
-}
-function resetTimer(id, secs) {
-  pauseTimer(id)
-  _timers[id] = { remaining: secs, running: false }
-  _renderTimer(id)
-}
-function _ping() {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)()
-    const osc = ctx.createOscillator()
-    const gain = ctx.createGain()
-    osc.connect(gain); gain.connect(ctx.destination)
-    osc.frequency.value = 523
-    gain.gain.setValueAtTime(0.3, ctx.currentTime)
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6)
-    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.6)
-  } catch(e) {}
-}
-
-// ── Checkbox persistence ───────────────────────────────────────────
 function saveCheck(cb, key) {
   try { localStorage.setItem('ws-check-' + key, cb.checked ? '1' : '0') } catch(e) {}
 }

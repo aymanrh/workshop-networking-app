@@ -1,8 +1,8 @@
-# Workshop Setup Guide
+# Workshop Setup Guide — Codex track
 
 **Ready in 10 minutes.** Complete by **Thursday, May 28** — two days before we meet.
 
-> Want the **Codex** track instead of Claude Code? See [setup-codex.md](setup-codex.md). Both finish at the same place; only the AI tool differs.
+> Using **Claude Code** instead? See [setup.md](setup.md). Both tracks finish at the same place; the AI tool is the only thing that differs.
 
 ---
 
@@ -14,7 +14,7 @@ Paste this into a terminal:
 code --version && git --version && node -v
 ```
 
-If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Claude Code)**, then **Step 5 (Clone)**. Otherwise start at Step 1.
+If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Codex)**, then **Step 5 (Clone)**. Otherwise start at Step 1.
 
 ---
 
@@ -57,23 +57,19 @@ Install **LTS v20 or higher** from [nodejs.org](https://nodejs.org). The install
 
 ---
 
-## 4. Claude Code
+## 4. Codex in VS Code
 
-Claude Code is the AI agent we'll drive throughout the workshop.
+Codex is the AI agent for the non-technical track. You'll drive it from a sidebar inside VS Code by pasting prompts straight from the workshop guide.
 
-1. Create a free account at [console.anthropic.com](https://console.anthropic.com) — the free tier is enough for the workshop.
-2. Install the CLI:
-   ```
-   npm install -g @anthropic-ai/claude-code
-   ```
-3. Run it once — it will open your browser to sign you in:
-   ```
-   claude
-   ```
+1. Create a free account at [platform.openai.com](https://platform.openai.com).
+2. Generate an API key: [platform.openai.com/api-keys](https://platform.openai.com/api-keys) → **Create new secret key** → copy it.
+3. In VS Code, press `Cmd/Ctrl+Shift+X`, search **Codex**, install the extension published by OpenAI.
+4. Open the Command Palette (`Cmd/Ctrl+Shift+P`) and run **Codex: Set API Key** — paste the key you copied.
+5. Open the Codex sidebar (left rail) and send a test message: `say hello`. You should see a reply.
 
-> **No Anthropic account, or `npm install -g` fails?** Use [claude.ai](https://claude.ai) in a browser tab instead. You'll lose the auto-execution loop but can still follow along with copy-paste.
+> **No OpenAI account, or the API key step fails?** Use [claude.ai](https://claude.ai) in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.
 
-- [ ] `claude --version` prints a version (or claude.ai is open in a tab)
+- [ ] Codex sidebar replies to a test message (or claude.ai is open in a tab)
 
 ---
 
@@ -109,6 +105,6 @@ When the boxes above are all ticked, you're ready. See you on **May 30**.
 | Symptom | Fix |
 |---------|-----|
 | `command not found: code` (Mac) | VS Code → `Cmd+Shift+P` → "Shell Command: Install 'code' command in PATH" |
-| `npm install -g` permission error | Mac/Linux: prefix with `sudo`. Windows: run terminal as Administrator. |
-| `claude` won't open the browser | Run `claude --version` first; if it works, run `claude` again. Still stuck? Use [claude.ai](https://claude.ai) in a browser tab. |
+| Codex extension can't find your API key | Re-run `Codex: Set API Key` from the Command Palette and paste the key again. |
+| Codex returns "insufficient quota" | Your OpenAI account needs a few dollars of credits. Top up at [platform.openai.com/billing](https://platform.openai.com/billing), or switch to the [claude.ai](https://claude.ai) browser fallback. |
 | Anything else | Drop a message in the workshop WhatsApp group — a facilitator will help. |

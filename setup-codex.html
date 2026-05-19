@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Workshop Setup Guide</title>
+<title>Workshop Setup Guide — Codex track</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#1a1a2e;line-height:1.6}
@@ -29,6 +29,8 @@ a{color:#4a9eff}
 .quick-check{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
 .quick-check h2{font-size:1rem;font-weight:700;color:#3730a3;margin-bottom:.5rem}
 .quick-check p{font-size:.9rem;color:#3730a3;margin:.5rem 0}
+.track-switch{background:#fef3c7;border:1px solid #fde68a;border-radius:10px;padding:.85rem 1.1rem;margin-bottom:1.25rem;font-size:.9rem;color:#78350f}
+.track-switch a{color:#9a3412;font-weight:600}
 .ready-box{background:#dcfce7;border:1px solid #86efac;border-radius:10px;padding:1.25rem;margin-top:1.5rem;text-align:center}
 .ready-box h3{font-size:1rem;font-weight:700;color:#14532d;margin-bottom:.4rem}
 .ready-box p{font-size:.9rem;color:#166534}
@@ -39,28 +41,26 @@ a{color:#4a9eff}
 .troubleshoot th{color:#475569;font-weight:600;background:#f8fafc}
 .troubleshoot tr:last-child td{border-bottom:none}
 .troubleshoot code{background:#f1f5f9;padding:.1rem .35rem;border-radius:4px;font-size:.85rem}
-.track-switch{background:#fef3c7;border:1px solid #fde68a;border-radius:10px;padding:.85rem 1.1rem;margin-bottom:1.25rem;font-size:.9rem;color:#78350f}
-.track-switch a{color:#9a3412;font-weight:600}
 </style>
 </head>
 <body>
 
 <div class="ws-header">
-  <div><h1>Workshop Setup Guide</h1><p>Ready in 10 minutes — complete by Thursday, May 28</p></div>
-  <span class="branch-badge">setup</span>
+  <div><h1>Workshop Setup Guide — Codex track</h1><p>Ready in 10 minutes — complete by Thursday, May 28</p></div>
+  <span class="branch-badge">setup · codex</span>
 </div>
 
 <div class="ws-main">
 
   <div class="track-switch">
-    Want the <strong>Codex</strong> track instead of Claude Code? Open <a href="setup-codex.html">setup-codex.html</a>. Both tracks finish at the same place — the AI tool is the only thing that differs.
+    Using <strong>Claude Code</strong> instead? Open <a href="setup.html">setup.html</a>. Both tracks finish at the same place — the AI tool is the only thing that differs.
   </div>
 
   <div class="quick-check">
     <h2>⚡ Already a developer? Quick check</h2>
     <p>Paste this into a terminal:</p>
     <div class="code-wrap"><code>code --version &amp;&amp; git --version &amp;&amp; node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <p>If all three print versions and <code>node -v</code> shows <strong>v20</strong> or higher, jump to <strong>Step 4 (Claude Code)</strong>, then <strong>Step 5 (Clone)</strong>. Otherwise start at Step 1.</p>
+    <p>If all three print versions and <code>node -v</code> shows <strong>v20</strong> or higher, jump to <strong>Step 4 (Codex)</strong>, then <strong>Step 5 (Clone)</strong>. Otherwise start at Step 1.</p>
   </div>
 
   <div class="setup-tool">
@@ -74,7 +74,7 @@ a{color:#4a9eff}
       </ul>
     </div>
     <div class="callout"><strong>Mac tip:</strong> open the Command Palette (<code>Cmd+Shift+P</code>) and run <em>Shell Command: Install 'code' command in PATH</em> so the <code>code</code> command works from your terminal.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-vscode"><label>VS Code installed with the three extensions</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-vscode"><label>VS Code installed with the three extensions</label></div>
   </div>
 
   <div class="setup-tool">
@@ -83,26 +83,26 @@ a{color:#4a9eff}
     <div class="code-wrap"><code>git config --global user.name "Your Name"</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>git config --global user.email "you@example.com"</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="callout">Already configured? Run <code>git config --global user.name</code> — if it prints your name, skip the two commands above.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-git"><label>git --version prints a version</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-git"><label>git --version prints a version</label></div>
   </div>
 
   <div class="setup-tool">
     <h3>3️⃣ Node.js</h3>
     <div class="setup-step">Install <strong>LTS v20 or higher</strong> from <a href="https://nodejs.org" target="_blank">nodejs.org</a>. The installer ships <code>npm</code> too.</div>
     <div class="code-wrap"><code>node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-node"><label>node -v prints v20.x.x or higher</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-node"><label>node -v prints v20.x.x or higher</label></div>
   </div>
 
   <div class="setup-tool">
-    <h3>4️⃣ Claude Code</h3>
-    <div class="setup-step">Claude Code is the AI agent we'll drive throughout the workshop.</div>
-    <div class="setup-step">1. Create a free account at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> — the free tier is enough for the workshop.</div>
-    <div class="setup-step">2. Install the CLI:</div>
-    <div class="code-wrap"><code>npm install -g @anthropic-ai/claude-code</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="setup-step">3. Run it once — it will open your browser to sign you in:</div>
-    <div class="code-wrap"><code>claude</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="callout"><strong>No Anthropic account, or <code>npm install -g</code> fails?</strong> Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab instead. You'll lose the auto-execution loop but can still follow along with copy-paste.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-claude"><label>claude --version prints a version (or claude.ai is open in a tab)</label></div>
+    <h3>4️⃣ Codex in VS Code</h3>
+    <div class="setup-step">Codex is the AI agent for the non-technical track. You'll drive it from a sidebar inside VS Code by pasting prompts straight from the workshop guide.</div>
+    <div class="setup-step">1. Create a free account at <a href="https://platform.openai.com" target="_blank">platform.openai.com</a>.</div>
+    <div class="setup-step">2. Generate an API key at <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a> → <strong>Create new secret key</strong> → copy it.</div>
+    <div class="setup-step">3. In VS Code, press <code>Cmd/Ctrl+Shift+X</code>, search <strong>Codex</strong>, install the extension published by OpenAI.</div>
+    <div class="setup-step">4. Open the Command Palette (<code>Cmd/Ctrl+Shift+P</code>) and run <strong>Codex: Set API Key</strong> — paste the key you copied.</div>
+    <div class="setup-step">5. Open the Codex sidebar (left rail) and send a test message: <code>say hello</code>. You should see a reply.</div>
+    <div class="callout"><strong>No OpenAI account, or the API key step fails?</strong> Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-codex"><label>Codex sidebar replies to a test message (or claude.ai is open in a tab)</label></div>
   </div>
 
   <div class="setup-tool">
@@ -113,7 +113,7 @@ a{color:#4a9eff}
     <div class="setup-step">That opens the repo in VS Code. You'll see two branches: <code>main</code> (the finished v1 app for reference) and <code>setup</code> (the starter scaffold and workshop materials — this guide lives here).</div>
     <div class="setup-step">Switch to the workshop branch before we meet:</div>
     <div class="code-wrap"><code>git checkout setup</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setup-repo"><label>Repo open in VS Code on the setup branch</label></div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-repo"><label>Repo open in VS Code on the setup branch</label></div>
   </div>
 
   <div class="ready-box">
@@ -126,8 +126,8 @@ a{color:#4a9eff}
     <table>
       <tr><th>Symptom</th><th>Fix</th></tr>
       <tr><td><code>command not found: code</code> (Mac)</td><td>VS Code → <code>Cmd+Shift+P</code> → <em>Shell Command: Install 'code' command in PATH</em></td></tr>
-      <tr><td><code>npm install -g</code> permission error</td><td>Mac/Linux: prefix with <code>sudo</code>. Windows: run terminal as Administrator.</td></tr>
-      <tr><td><code>claude</code> won't open the browser</td><td>Try <code>claude --version</code> first; if it works, retry <code>claude</code>. Still stuck? Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab.</td></tr>
+      <tr><td>Codex extension can't find your API key</td><td>Re-run <code>Codex: Set API Key</code> from the Command Palette and paste the key again.</td></tr>
+      <tr><td>Codex returns "insufficient quota"</td><td>Your OpenAI account needs a few dollars of credits. Top up at <a href="https://platform.openai.com/billing" target="_blank">platform.openai.com/billing</a>, or switch to the <a href="https://claude.ai" target="_blank">claude.ai</a> browser fallback.</td></tr>
       <tr><td>Anything else</td><td>Drop a message in the workshop WhatsApp group — a facilitator will help.</td></tr>
     </table>
   </div>

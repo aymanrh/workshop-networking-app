@@ -13,21 +13,11 @@ a{color:#4a9eff}
 .branch-badge{background:#4a9eff;color:white;padding:.25rem .75rem;border-radius:999px;font-size:.75rem;font-weight:700;white-space:nowrap}
 .ws-main{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
 .step{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.07)}
-.track-tabs{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin-bottom:1rem}
-.tab-btn{flex:1;padding:.55rem 1rem;border:none;cursor:pointer;font-size:.88rem;font-weight:500;background:white;color:#64748b;transition:all .15s}
-.tab-btn.active{background:#1e3a5f;color:white}
-.track{display:none}
-.track.active{display:block}
 .code-wrap{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0;margin:.6rem 0}
 .code-wrap code{background:#0f172a;color:#e2e8f0;padding:.7rem 1rem;font-family:'SF Mono','Fira Code',monospace;font-size:.88rem;flex:1;display:block;white-space:pre-wrap;word-break:break-all;line-height:1.5}
 .copy-btn{background:#334155;color:#94a3b8;border:none;padding:0 1rem;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;transition:background .15s}
 .copy-btn:hover{background:#4a9eff;color:white}
 .copy-btn.copied{background:#22c55e;color:white}
-.prompt-block{background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;margin:.6rem 0}
-.prompt-label{font-size:.75rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
-.prompt-text{font-style:italic;color:#475569;line-height:1.5;margin-bottom:.5rem;font-size:.92rem}
-.prompt-block .copy-btn{background:#f1f5f9;color:#4a9eff;border:1px solid #e2e8f0;border-radius:6px;padding:.3rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600}
-.prompt-block .copy-btn.copied{background:#22c55e;color:white;border-color:#22c55e}
 .role-banner{background:#1e3a5f;color:white;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem}
 .role-banner h3{font-size:.88rem;font-weight:600;opacity:.7;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
 .role-banner .roles-inline{display:flex;gap:.75rem;flex-wrap:wrap}
@@ -36,14 +26,14 @@ a{color:#4a9eff}
 .rp-dev{background:#93c5fd;color:#1e3a8a}
 .rp-tester{background:#86efac;color:#14532d}
 .callout{background:#fef3c7;border-left:3px solid #f59e0b;padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.9rem;color:#78350f}
-.divider{border:none;border-top:1px solid #e2e8f0;margin:1.5rem 0}
 .info{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:.9rem 1rem;font-size:.9rem;color:#1e40af;margin:.75rem 0}
+.info code{background:rgba(255,255,255,.5);padding:.1rem .3rem;border-radius:3px}
 .agenda-row{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid #f1f5f9;align-items:flex-start}
 .agenda-row:last-child{border-bottom:none}
 .agenda-time{font-size:.8rem;font-weight:700;color:#94a3b8;white-space:nowrap;min-width:55px;padding-top:.1rem}
 .agenda-content h3{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
 .agenda-content p{font-size:.85rem;color:#64748b}
-.agenda-branch{font-size:.72rem;font-weight:700;background:#e0f2fe;color:#0369a1;padding:.15rem .5rem;border-radius:999px;display:inline-block;margin-top:.3rem}
+.step-chip{font-size:.72rem;font-weight:700;background:#e0f2fe;color:#0369a1;padding:.15rem .5rem;border-radius:999px;display:inline-block;margin-top:.3rem}
 </style>
 </head>
 <body>
@@ -63,21 +53,23 @@ a{color:#4a9eff}
     <p style="font-size:.8rem;opacity:.6;margin-top:.5rem">Pre-assigned from your registration. Each group has all 3 roles — everyone contributes to every step.</p>
   </div>
 
-  <div class="info">We'll move through 4 branches of a pre-built repository, each showing a GSD checkpoint. You explore the output, discuss it as a group, and run the tools to see what they produce.</div>
+  <div class="info">We spend the whole 2 hours on the <code>setup</code> branch, building a real app live with GSD + Claude Code (or Codex). The finished v1 reference is on <code>main</code> — peek any time with <code>git show main:...</code> to see "what's this supposed to look like?".</div>
 
   <div class="step">
     <div class="agenda-row"><div class="agenda-time">0:00</div><div class="agenda-content"><h3>Welcome + Icebreaker</h3><p>Goals, agenda, housekeeping. Group intros with one themed prompt.</p></div></div>
     <div class="agenda-row"><div class="agenda-time">0:10</div><div class="agenda-content"><h3>Spec-driven AI dev — the big picture</h3><p>What is GSD? Why does TDD/BDD still matter with AI? How do we keep humans in the loop?</p></div></div>
-    <div class="agenda-row"><div class="agenda-time">0:20</div><div class="agenda-content"><h3>Step 00 — Start the project</h3><p>Run <code>/gsd new-project</code> and answer the questions as a group. <strong>Your prompt is your spec.</strong></p><span class="agenda-branch">00-empty</span></div></div>
-    <div class="agenda-row"><div class="agenda-time">0:28</div><div class="agenda-content"><h3>Step 01 — Explore the planning output</h3><p>Tour all 9 files GSD created. Identify risks in PITFALLS.md. Run <code>/gsd discuss-phase 1</code>.</p><span class="agenda-branch">01-planning</span></div></div>
-    <div class="agenda-row"><div class="agenda-time">0:45</div><div class="agenda-content"><h3>Step 02 — Explore the discussion output</h3><p>What did the AI decide vs. what did you decide? BA/Tester lens: what gaps do you spot?</p><span class="agenda-branch">02-discussion</span></div></div>
-    <div class="agenda-row"><div class="agenda-time">1:00</div><div class="agenda-content"><h3>Step 03 — Running app + tests</h3><p>Run the app. Run unit tests + E2E tests. Open the HTML report. Read VERIFICATION.md. UAT discussion: what does a human still own?</p><span class="agenda-branch">03-milestone</span></div></div>
-    <div class="agenda-row"><div class="agenda-time">1:30</div><div class="agenda-content"><h3>Ship + new milestone</h3><p>Close milestone 1, start milestone 2. Teaser: integrations and CI/CD gates in Workshop 2.</p><span class="agenda-branch">03-milestone</span></div></div>
-    <div class="agenda-row"><div class="agenda-time">1:40</div><div class="agenda-content"><h3>Q&amp;A + Wrap-up</h3><p>Open questions, key takeaways, what to try after today.</p></div></div>
+    <div class="agenda-row"><div class="agenda-time">0:20</div><div class="agenda-content"><h3>Step 3 — Kick off the project</h3><p>Run <code>/gsd-new-project</code> and answer the 6–8 questions as a group. <strong>Your prompt is your spec.</strong></p><span class="step-chip">workshop.md · Step 3</span></div></div>
+    <div class="agenda-row"><div class="agenda-time">0:30</div><div class="agenda-content"><h3>Tour the planning output</h3><p>Walk through <code>PROJECT.md</code>, <code>ROADMAP.md</code>, <code>REQUIREMENTS.md</code>, and the research files GSD just produced. Identify risks in <code>PITFALLS.md</code>.</p></div></div>
+    <div class="agenda-row"><div class="agenda-time">0:50</div><div class="agenda-content"><h3>Step 4 — Discuss phase 1</h3><p>Run <code>/gsd-discuss-phase 1</code>. Surface the decisions the agent would otherwise make on its own. What did <strong>you</strong> decide vs. what the AI would have decided?</p><span class="step-chip">workshop.md · Step 4</span></div></div>
+    <div class="agenda-row"><div class="agenda-time">1:05</div><div class="agenda-content"><h3>Step 5 — Execute phase 1</h3><p>Run <code>/gsd-execute-phase 1</code>. Plan → code → tests → verification. Run the app, run the tests, open the HTML report.</p><span class="step-chip">workshop.md · Step 5</span></div></div>
+    <div class="agenda-row"><div class="agenda-time">1:30</div><div class="agenda-content"><h3>UAT + Ship</h3><p>Read <code>01-VERIFICATION.md</code> — what does a human still own? Run <code>/gsd-ship</code> and open milestone 2.</p><span class="step-chip">workshop.md · Step 5</span></div></div>
+    <div class="agenda-row"><div class="agenda-time">1:45</div><div class="agenda-content"><h3>Q&amp;A + Wrap-up</h3><p>Open questions, key takeaways, what to try after today.</p></div></div>
     <div class="agenda-row"><div class="agenda-time">2:00</div><div class="agenda-content"><h3>End</h3><p>👏</p></div></div>
   </div>
 
-  <div class="callout">📝 <strong>What you'll produce by the end:</strong> A spec-driven project plan (PROJECT.md + ROADMAP.md + research), a phase 1 discussion context (CONTEXT.md), and a running app with passing tests and a verification report.</div>
+  <div class="callout">📝 <strong>What you'll produce by the end:</strong> A spec-driven project plan (PROJECT.md + ROADMAP.md + research), a phase 1 discussion context (CONTEXT.md), and a running app with passing tests and a verification report — all on your own machine, built by your group.</div>
+
+  <p style="font-size:.85rem;color:#64748b;text-align:center;margin-top:1rem">Step numbers map to <a href="workshop.html">workshop.html</a> — your live guide during the session.</p>
 
 </div>
 <script>
@@ -88,22 +80,6 @@ function copyCode(btn) {
     btn.classList.add('copied')
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied') }, 2000)
   })
-}
-function copyPrompt(promptBlock) {
-  const text = promptBlock.querySelector('.prompt-text').textContent.trim()
-  const btn = promptBlock.querySelector('.copy-btn')
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = '✓ Copied'
-    btn.classList.add('copied')
-    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('copied') }, 2000)
-  })
-}
-function switchTab(btn, track) {
-  const step = btn.closest('.step')
-  step.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
-  step.querySelectorAll('.track').forEach(c => c.classList.remove('active'))
-  btn.classList.add('active')
-  step.querySelector('.track.' + track).classList.add('active')
 }
 </script>
 </body>
