@@ -14,7 +14,7 @@ Paste this into a terminal:
 code --version && git --version && node -v
 ```
 
-If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Claude Code)**, then **Step 5 (Clone)**. Otherwise start at Step 1.
+If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Claude Code)**, **Step 5 (GSD)**, then **Step 6 (Clone)**. Otherwise start at Step 1.
 
 ---
 
@@ -77,7 +77,23 @@ Claude Code is the AI agent we'll drive throughout the workshop.
 
 ---
 
-## 5. Clone the workshop repo
+## 5. GSD (planning loop)
+
+GSD ("Get Shit Done") is the spec-driven workflow we'll drive Claude Code with — it turns an idea into a roadmap of phases, then plans, builds, and verifies each one. The installer adds `/gsd-*` slash commands to Claude Code.
+
+```
+npx @opengsd/get-shit-done-redux@latest
+```
+
+When prompted, pick **Claude Code** as the runtime and **global** install scope so the commands work in any repo.
+
+> Skipping the CLI? If you're using [claude.ai](https://claude.ai) in a browser tab instead of Claude Code, skip this step — GSD only installs into a CLI runtime.
+
+- [ ] Installer prints a success message and lists the `/gsd-*` commands
+
+---
+
+## 6. Clone the workshop repo
 
 ```
 git clone https://github.com/aymanrh/workshop-networking-app.git
@@ -111,4 +127,6 @@ When the boxes above are all ticked, you're ready. See you on **May 30**.
 | `command not found: code` (Mac) | VS Code → `Cmd+Shift+P` → "Shell Command: Install 'code' command in PATH" |
 | `npm install -g` permission error | Mac/Linux: prefix with `sudo`. Windows: run terminal as Administrator. |
 | `claude` won't open the browser | Run `claude --version` first; if it works, run `claude` again. Still stuck? Use [claude.ai](https://claude.ai) in a browser tab. |
+| `/gsd-*` commands don't show up in Claude Code | Restart Claude Code — skills are only loaded at startup. GSD installs to `~/.claude/skills/gsd-*/`. |
+| GSD install seems broken | Re-run the installer — it's idempotent: `npx @opengsd/get-shit-done-redux@latest`. |
 | Anything else | Drop a message in the workshop WhatsApp group — a facilitator will help. |

@@ -14,7 +14,7 @@ Paste this into a terminal:
 code --version && git --version && node -v
 ```
 
-If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Codex)**, then **Step 5 (Clone)**. Otherwise start at Step 1.
+If all three print versions and `node -v` shows **v20** or higher → jump to **Step 4 (Codex)**, **Step 5 (GSD)**, then **Step 6 (Clone)**. Otherwise start at Step 1.
 
 ---
 
@@ -67,13 +67,29 @@ Codex is the AI agent for the non-technical track. You'll drive it from a sideba
 4. Open the Command Palette (`Cmd/Ctrl+Shift+P`) and run **Codex: Set API Key** — paste the key you copied.
 5. Open the Codex sidebar (left rail) and send a test message: `say hello`. You should see a reply.
 
-> **No OpenAI account, or the API key step fails?** Use [claude.ai](https://claude.ai) in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.
+> **No OpenAI account, or the API key step fails?** Use [chatgpt.com](https://chatgpt.com) in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.
 
-- [ ] Codex sidebar replies to a test message (or claude.ai is open in a tab)
+- [ ] Codex sidebar replies to a test message (or chatgpt.com is open in a tab)
 
 ---
 
-## 5. Clone the workshop repo
+## 5. GSD (planning loop)
+
+GSD ("Get Shit Done") is the spec-driven workflow we'll drive Codex with — it turns an idea into a roadmap of phases, then plans, builds, and verifies each one. The installer adds `$gsd-*` commands to Codex.
+
+```
+npx @opengsd/get-shit-done-redux@latest
+```
+
+When prompted, pick **Codex** as the runtime and **global** install scope so the commands work in any repo.
+
+> Using [chatgpt.com](https://chatgpt.com) in a browser tab instead of the Codex extension? Skip this step — GSD only installs into a CLI/IDE runtime.
+
+- [ ] Installer prints a success message and lists the `$gsd-*` commands
+
+---
+
+## 6. Clone the workshop repo
 
 ```
 git clone https://github.com/aymanrh/workshop-networking-app.git
@@ -106,5 +122,8 @@ When the boxes above are all ticked, you're ready. See you on **May 30**.
 |---------|-----|
 | `command not found: code` (Mac) | VS Code → `Cmd+Shift+P` → "Shell Command: Install 'code' command in PATH" |
 | Codex extension can't find your API key | Re-run `Codex: Set API Key` from the Command Palette and paste the key again. |
-| Codex returns "insufficient quota" | Your OpenAI account needs a few dollars of credits. Top up at [platform.openai.com/billing](https://platform.openai.com/billing), or switch to the [claude.ai](https://claude.ai) browser fallback. |
+| Codex returns "insufficient quota" | Your OpenAI account needs a few dollars of credits. Top up at [platform.openai.com/billing](https://platform.openai.com/billing), or switch to the [chatgpt.com](https://chatgpt.com) browser fallback. |
+| `$gsd-*` commands don't show up in Codex | Restart Codex — skills are only loaded at startup. GSD installs to `~/.codex/skills/gsd-*/`. |
+| Duplicate `$gsd-*` entries listed in Codex | Your Codex CLI is older than **0.130.0**. Upgrade Codex, or ignore the duplicates — they point to the same skill. |
+| GSD install seems broken | Re-run the installer — it's idempotent: `npx @opengsd/get-shit-done-redux@latest`. |
 | Anything else | Drop a message in the workshop WhatsApp group — a facilitator will help. |

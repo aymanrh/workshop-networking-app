@@ -60,7 +60,7 @@ a{color:#4a9eff}
     <h2>⚡ Already a developer? Quick check</h2>
     <p>Paste this into a terminal:</p>
     <div class="code-wrap"><code>code --version &amp;&amp; git --version &amp;&amp; node -v</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
-    <p>If all three print versions and <code>node -v</code> shows <strong>v20</strong> or higher, jump to <strong>Step 4 (Codex)</strong>, then <strong>Step 5 (Clone)</strong>. Otherwise start at Step 1.</p>
+    <p>If all three print versions and <code>node -v</code> shows <strong>v20</strong> or higher, jump to <strong>Step 4 (Codex)</strong>, <strong>Step 5 (GSD)</strong>, then <strong>Step 6 (Clone)</strong>. Otherwise start at Step 1.</p>
   </div>
 
   <div class="setup-tool">
@@ -101,12 +101,21 @@ a{color:#4a9eff}
     <div class="setup-step">3. In VS Code, press <code>Cmd/Ctrl+Shift+X</code>, search <strong>Codex</strong>, install the extension published by OpenAI.</div>
     <div class="setup-step">4. Open the Command Palette (<code>Cmd/Ctrl+Shift+P</code>) and run <strong>Codex: Set API Key</strong> — paste the key you copied.</div>
     <div class="setup-step">5. Open the Codex sidebar (left rail) and send a test message: <code>say hello</code>. You should see a reply.</div>
-    <div class="callout"><strong>No OpenAI account, or the API key step fails?</strong> Use <a href="https://claude.ai" target="_blank">claude.ai</a> in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.</div>
-    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-codex"><label>Codex sidebar replies to a test message (or claude.ai is open in a tab)</label></div>
+    <div class="callout"><strong>No OpenAI account, or the API key step fails?</strong> Use <a href="https://chatgpt.com" target="_blank">chatgpt.com</a> in a browser tab instead — same paste-prompts-into-chat workflow, no install needed.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-codex"><label>Codex sidebar replies to a test message (or chatgpt.com is open in a tab)</label></div>
   </div>
 
   <div class="setup-tool">
-    <h3>5️⃣ Clone the workshop repo</h3>
+    <h3>5️⃣ GSD (planning loop)</h3>
+    <div class="setup-step">GSD ("Get Shit Done") is the spec-driven workflow we'll drive Codex with — it turns an idea into a roadmap of phases, then plans, builds, and verifies each one. The installer adds <code>$gsd-*</code> commands to Codex.</div>
+    <div class="code-wrap"><code>npx @opengsd/get-shit-done-redux@latest</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="setup-step">When prompted, pick <strong>Codex</strong> as the runtime and <strong>global</strong> install scope so the commands work in any repo.</div>
+    <div class="callout"><strong>Using <a href="https://chatgpt.com" target="_blank">chatgpt.com</a> in a browser tab instead of the Codex extension?</strong> Skip this step — GSD only installs into a CLI/IDE runtime.</div>
+    <div class="checkpoint"><input type="checkbox" data-ck="setupcx-gsd"><label>Installer prints a success message and lists the $gsd-* commands</label></div>
+  </div>
+
+  <div class="setup-tool">
+    <h3>6️⃣ Clone the workshop repo</h3>
     <div class="code-wrap"><code>git clone https://github.com/aymanrh/workshop-networking-app.git</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>cd workshop-networking-app</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
     <div class="code-wrap"><code>code .</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
@@ -127,7 +136,10 @@ a{color:#4a9eff}
       <tr><th>Symptom</th><th>Fix</th></tr>
       <tr><td><code>command not found: code</code> (Mac)</td><td>VS Code → <code>Cmd+Shift+P</code> → <em>Shell Command: Install 'code' command in PATH</em></td></tr>
       <tr><td>Codex extension can't find your API key</td><td>Re-run <code>Codex: Set API Key</code> from the Command Palette and paste the key again.</td></tr>
-      <tr><td>Codex returns "insufficient quota"</td><td>Your OpenAI account needs a few dollars of credits. Top up at <a href="https://platform.openai.com/billing" target="_blank">platform.openai.com/billing</a>, or switch to the <a href="https://claude.ai" target="_blank">claude.ai</a> browser fallback.</td></tr>
+      <tr><td>Codex returns "insufficient quota"</td><td>Your OpenAI account needs a few dollars of credits. Top up at <a href="https://platform.openai.com/billing" target="_blank">platform.openai.com/billing</a>, or switch to the <a href="https://chatgpt.com" target="_blank">chatgpt.com</a> browser fallback.</td></tr>
+      <tr><td><code>$gsd-*</code> commands don't show up in Codex</td><td>Restart Codex — skills are only loaded at startup. GSD installs to <code>~/.codex/skills/gsd-*/</code>.</td></tr>
+      <tr><td>Duplicate <code>$gsd-*</code> entries listed in Codex</td><td>Your Codex CLI is older than <strong>0.130.0</strong>. Upgrade Codex, or ignore the duplicates — they point to the same skill.</td></tr>
+      <tr><td>GSD install seems broken</td><td>Re-run the installer — it's idempotent: <code>npx @opengsd/get-shit-done-redux@latest</code>.</td></tr>
       <tr><td>Anything else</td><td>Drop a message in the workshop WhatsApp group — a facilitator will help.</td></tr>
     </table>
   </div>
