@@ -1,0 +1,82 @@
+# NOTE: This is the setup-branch copy of the deploy workflow.
+# A near-identical file lives on `main` at the same path. GitHub Actions
+# only runs a workflow defined on the branch being pushed, so we need
+# both copies for "push to either branch refreshes Pages" to actually work.
+#
+# Only difference from main's version: the first checkout pins `ref: main`,
+# because the `setup` branch has no package.json — the Next.js app is built
+# from main. The second checkout still pulls the latest `setup` branch for
+# the /setup/ doc bundle.
+#
+# If you edit one, edit the other.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, setup]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Build the v1 app from `main`, regardless of which branch triggered
+      # this run (setup-branch pushes also fire this workflow).
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: pnpm/action-setup@v4
+        # No `version:` — pnpm/action-setup v4 reads it from package.json's
+        # `packageManager` field (pnpm@9.15.9) and rejects specifying both.
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run build
+        env:
+          GITHUB_PAGES: "true"
+
+      # SPA fallback: GH Pages serves 404.html for unknown paths; copying
+      # index.html means a hard refresh of /people/abc still hydrates the app.
+      - run: cp out/index.html out/404.html
+
+      # Bundle the `setup` branch's static HTML at /setup/ so attendees can
+      # reach the workshop guide at /workshop-networking-app/setup/setup.html.
+      - uses: actions/checkout@v4
+        with:
+          ref: setup
+          path: setup-branch
+      - run: |
+          mkdir -p out/setup
+          rsync -a --exclude='.git' --exclude='.github' setup-branch/ out/setup/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
