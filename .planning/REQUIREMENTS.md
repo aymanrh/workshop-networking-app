@@ -59,15 +59,15 @@
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| CONT-01 | — | Not mapped |
-| CONT-02 | — | Not mapped |
-| CONT-03 | — | Not mapped |
-| CAT-01 | — | Not mapped |
-| CAT-02 | — | Not mapped |
-| VAL-01 | — | Not mapped |
-| VAL-02 | — | Not mapped |
-| VAL-03 | — | Not mapped |
-| INT-01 | — | Not mapped |
-| INT-02 | — | Not mapped |
-| FLW-01 | — | Not mapped |
-| FLW-02 | — | Not mapped |
+| CONT-01 | Phase 1 | Pending |
+| CONT-02 | Phase 1 | Pending |
+| CONT-03 | Phase 1 | Pending |
+| CAT-01 | Phase 2 | Pending |
+| CAT-02 | Phase 2 | Pending |
+| VAL-01 | Phase 3 | Pending |
+| VAL-02 | Phase 3 | Pending |
+| VAL-03 | Phase 3 | Pending |
+| INT-01 | Phase 4 | Pending |
+| INT-02 | Phase 4 | Pending |
+| FLW-01 | Phase 5 | Pending |
+| FLW-02 | Phase 5 | Pending |
